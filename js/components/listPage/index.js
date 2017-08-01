@@ -72,10 +72,14 @@ class ListPage extends Component {
         </Header>
 
         <Content padder>
+          
           <List>
             {
               this.state.parentMenus.map((l) => (
-                <Text>{l.Identifier}</Text>
+                <ListItem>
+                  <Text>{l.Identifier}
+                    </Text>
+                  </ListItem>
               ))
             }
           </List>
