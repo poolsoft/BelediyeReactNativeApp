@@ -1,7 +1,10 @@
+import {
+  Dimensions,
+  StyleSheet
+} from "react-native";
 
-const React = require('react-native');
+const { width } = Dimensions.get('window')
 
-const { StyleSheet } = React;
 export default {
   container: {
     backgroundColor: '#FBFAFA',
@@ -18,4 +21,15 @@ export default {
   mt: {
     marginTop: 18,
   },
+  slide: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+
+  },
+  image:{
+    width: width * 0.5,
+    overflow: 'visible',
+    height:500  
+  }
 };

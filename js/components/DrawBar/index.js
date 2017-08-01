@@ -7,7 +7,9 @@ import {
   List,
   ListItem,
   Content,
-  Icon
+  Icon,
+  CardItem,
+  Right
 } from "native-base";
 
 export default class DrawBar extends React.Component {
@@ -75,12 +77,15 @@ export default class DrawBar extends React.Component {
           </Image>
           <ListView
             dataSource={this.state.dataSource}
-            renderRow={(rowData) => <ListItem
+            renderRow={(rowData) => <CardItem
               button
-              onPress={() => this.props.navigation.navigate("ListPage", rowData.CategoryID)}
+              onPress={() => this.props.navigation.navigate("ListPage", rowData)}
             >
-              <Text>  {rowData.Identifier}</Text>
-            </ListItem>
+              <Text>{rowData.Identifier}</Text>
+              <Right>
+                <Icon name="arrow-forward" />
+              </Right>
+            </CardItem>
             }
           />
 

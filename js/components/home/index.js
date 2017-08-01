@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { TouchableOpacity } from "react-native";
+import {
+  TouchableOpacity,
+  View,
+  Image,
+  Dimensions,
+  ActivityIndicator
+} from "react-native";
 import { connect } from "react-redux";
 import BlankPage2 from "../blankPage2";
 import DrawBar from "../DrawBar";
@@ -18,9 +24,12 @@ import {
 } from "native-base";
 import { Grid, Row } from "react-native-easy-grid";
 
+import Swiper from 'react-native-swiper';
+
 import { setIndex } from "../../actions/list";
 import { openDrawer } from "../../actions/drawer";
 import styles from "./styles";
+
 
 class Home extends Component {
   static navigationOptions = {
@@ -38,8 +47,33 @@ class Home extends Component {
     Actions.blankPage();
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true
+    }
+  }
+
+  componentDidMount() {
+    return fetch('http://necmettincimen-001-site1.itempurl.com/api/tBannerLanguage')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({
+          isLoading: false,
+          banners: responseJson
+        })
+      })
+
+  }
+
   render() {
-    console.log(DrawNav, "786785786");
+    if (this.state.isLoading) {
+      return (
+        <View style={{ flex: 1, paddingTop: 20 }}>
+          <ActivityIndicator />
+        </View>
+      );
+    }
     return (
       <Container style={styles.container}>
         <Header>
@@ -59,7 +93,7 @@ class Home extends Component {
           </Body>
 
           <Right>
-                        <Button
+            <Button
               transparent
               onPress={() => {
                 DrawerNav.dispatch(
@@ -71,26 +105,31 @@ class Home extends Component {
                 DrawerNav.goBack();
               }}
             >
-              <Icon active name="power" />
+              <Icon active name="person" />
             </Button>
           </Right>
         </Header>
         <Content>
-          <Grid style={styles.mt}>
-            {this.props.list.map((item, i) => (
-              <Row key={i}>
-                <TouchableOpacity
-                  style={styles.row}
-                  onPress={() =>
-                    this.props.navigation.navigate("BlankPage", {
-                      name: { item }
-                    })}
-                >
-                  <Text style={styles.text}>{item}</Text>
-                </TouchableOpacity>
-              </Row>
-            ))}
-          </Grid>
+          <View>
+            <Swiper style={styles.wrapper} height={240}
+              onMomentumScrollEnd={(e, state, context) => console.log('index:', state.index)}
+              dot={<View style={{ backgroundColor: 'rgba(0,0,0,.2)', width: 5, height: 5, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3 }} />}
+              activeDot={<View style={{ backgroundColor: '#000', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3 }} />}
+              paginationStyle={{
+                bottom: -23, left: null, right: 10
+
+              }} autoplay loop>
+              {
+                this.state.banners.map((l,i) => (
+                  <View key={i}>
+                    <Image resizeMode = 'contain'  style={styles.image} source={{ uri: 'http://www.malatya.bel.tr/'+l }} />
+                  </View>
+                ))
+              }
+
+            </Swiper>
+          </View>
+
         </Content>
       </Container>
     );

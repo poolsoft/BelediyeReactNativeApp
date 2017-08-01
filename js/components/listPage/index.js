@@ -26,7 +26,7 @@ class ListPage extends Component {
   }
 
   componentDidMount() {
-    return fetch('http://necmettincimen-001-site1.itempurl.com/api/tCategory/' + this.props.navigation.state.params)
+    return fetch('http://necmettincimen-001-site1.itempurl.com/api/tCategory/' + this.props.navigation.state.params.CategoryID)
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
@@ -58,7 +58,7 @@ class ListPage extends Component {
           </Left>
 
           <Body>
-            <Title>Blank page</Title>
+            <Title>{this.props.navigation.state.params.Identifier}</Title>
           </Body>
 
           <Right>
@@ -76,7 +76,9 @@ class ListPage extends Component {
           <List>
             {
               this.state.parentMenus.map((l) => (
-                <ListItem>
+                <ListItem key={l.CategoryID}
+              button
+              onPress={() => this.props.navigation.navigate("ListPage", rowData)}>
                   <Text>{l.Identifier}
                     </Text>
                   </ListItem>
