@@ -4,7 +4,9 @@ import {
   View,
   Image,
   Dimensions,
-  ActivityIndicator
+  ActivityIndicator,
+  List,
+  ListItem
 } from "react-native";
 import { connect } from "react-redux";
 import BlankPage2 from "../blankPage2";
@@ -55,15 +57,34 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    return fetch('http://necmettincimen-001-site1.itempurl.com/api/tBannerLanguage')
+
+    fetch("http://necmettincimen-001-site1.itempurl.com/api/Generic?sql=select%20top%2010%20ContentID%2CHeader%2CDescription%2CSpotImage%20from%20tContentLanguage%20where%20Header!%3D''", {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        sql: 'select ContentID,Header,Description,SpotImage from tContentLanguage',
+      })
+    })
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
-          isLoading: false,
-          banners: responseJson
+          news: responseJson
         })
+
       })
 
+    return fetch('http://necmettincimen-001-site1.itempurl.com/api/tBannerLanguage')
+      .then((response) => response.json())
+      .then((responseJson) => {
+
+        this.setState({
+          isLoading: false,
+          banners: responseJson,
+        })
+      })
   }
 
   render() {
@@ -75,7 +96,7 @@ class Home extends Component {
       );
     }
     return (
-      <Container style={styles.container}>
+      <Container style={styles.container} >
         <Header>
           <Left>
 
@@ -89,7 +110,7 @@ class Home extends Component {
           </Left>
 
           <Body>
-            <Title>Home</Title>
+            <Title>Malatya Belediyesi</Title>
           </Body>
 
           <Right>
@@ -111,27 +132,38 @@ class Home extends Component {
         </Header>
         <Content>
           <View>
-            <Swiper style={styles.wrapper} height={240}
-              onMomentumScrollEnd={(e, state, context) => console.log('index:', state.index)}
+            <Swiper style={styles.wrapper} height={340}
               dot={<View style={{ backgroundColor: 'rgba(0,0,0,.2)', width: 5, height: 5, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3 }} />}
               activeDot={<View style={{ backgroundColor: '#000', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3 }} />}
-              paginationStyle={{
-                bottom: -23, left: null, right: 10
-
-              }} autoplay loop>
+              autoplay loop showsButtons>
               {
-                this.state.banners.map((l,i) => (
+                this.state.banners.map((l, i) => (
                   <View key={i}>
-                    <Image resizeMode = 'contain'  style={styles.image} source={{ uri: 'http://www.malatya.bel.tr/'+l }} />
+                    <Image resizeMode='contain' style={styles.image} source={{ uri: 'http://www.malatya.bel.tr/' + l }} />
                   </View>
                 ))
               }
 
             </Swiper>
+
+            {/* <List>
+              {
+                this.state.news.map((l) => (
+                  <ListItem key={l.ContentID}
+                    button>
+
+                    <Text>{l.Header}
+                    </Text>
+
+                  </ListItem>
+                ))
+              }
+            </List> */}
+
           </View>
 
         </Content>
-      </Container>
+      </Container >
     );
   }
 }

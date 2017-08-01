@@ -7,7 +7,7 @@ const { width } = Dimensions.get('window')
 
 export default {
   container: {
-    backgroundColor: '#FBFAFA',
+    backgroundColor: 'white',
   },
   row: {
     flex: 1,
@@ -27,9 +27,10 @@ export default {
     backgroundColor: 'transparent',
 
   },
-  image:{
-    width: width * 0.5,
-    overflow: 'visible',
-    height:500  
+  image: {
+    width: width,
+    height: 300,
+    justifyContent: "center",
+    alignItems: "center"
   }
 };

@@ -24,7 +24,6 @@ export default class DrawBar extends React.Component {
     return fetch('http://necmettincimen-001-site1.itempurl.com/api/tCategory/1')
       .then((response) => response.json())
       .then((responseJson) => {
-        console.log(responseJson)
         let ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
         this.setState({
           isLoading: false,
@@ -57,9 +56,8 @@ export default class DrawBar extends React.Component {
               uri: "http://tedarik.malatya.bel.tr/Assets/Images/webtvlogo.png"
             }}
             style={{
-              height: 80,
+              height: 150,
               resizeMode: "contain",
-              justifyContent: "center",
               alignItems: "center"
             }}
           >
