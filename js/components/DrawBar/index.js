@@ -9,18 +9,7 @@ import {
   Content,
   Icon
 } from "native-base";
-const routes = [
-  {
-    title: "Belediye Başkanımız",
-    screen: "Home",
-    icon: "person"
-  },
-  {
-    title: "Kurumsal",
-    screen: "BlankPage2",
-    icon: "home"
-  }
-];
+
 export default class DrawBar extends React.Component {
   constructor(props) {
     super(props);
@@ -33,6 +22,7 @@ export default class DrawBar extends React.Component {
     return fetch('http://necmettincimen-001-site1.itempurl.com/api/tCategory/1')
       .then((response) => response.json())
       .then((responseJson) => {
+        console.log(responseJson)
         let ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
         this.setState({
           isLoading: false,
@@ -66,7 +56,7 @@ export default class DrawBar extends React.Component {
             }}
             style={{
               height: 80,
-              resizeMode:"contain",
+              resizeMode: "contain",
               justifyContent: "center",
               alignItems: "center"
             }}
@@ -85,15 +75,16 @@ export default class DrawBar extends React.Component {
           </Image>
           <ListView
             dataSource={this.state.dataSource}
-            renderRow={(rowData) =><ListItem
-                  button
-                  onPress={() => this.props.navigation.navigate("BlankPage2")}
-                >
-                  <Text>  {rowData}</Text>
-                </ListItem>}
+            renderRow={(rowData) => <ListItem
+              button
+              onPress={() => this.props.navigation.navigate("ListPage", rowData.CategoryID)}
+            >
+              <Text>  {rowData.Identifier}</Text>
+            </ListItem>
+            }
           />
 
-      
+
 
         </Content>
       </Container>
