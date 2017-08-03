@@ -1,199 +1,122 @@
 import React, { Component } from "react";
+
 import {
-  TouchableOpacity,
+  StatusBar,  
   View,
   Image,
-  Dimensions,
-  ActivityIndicator,
-  List,
-  ListItem
-} from "react-native";
-import { connect } from "react-redux";
-import BlankPage2 from "../blankPage2";
-import DrawBar from "../DrawBar";
-import { DrawerNavigator, NavigationActions } from "react-navigation";
+  Text,
+  ListView,
+  TouchableOpacity
+} from 'react-native';
+
 import {
   Container,
   Header,
-  Title,
-  Content,
-  Text,
+  Left,
   Button,
   Icon,
-  Left,
+  Content,
+  CardItem,
+  Card,
+  Right,
   Body,
-  Right
+  Title
 } from "native-base";
-import { Grid, Row } from "react-native-easy-grid";
 
 import Swiper from 'react-native-swiper';
-
-import { setIndex } from "../../actions/list";
-import { openDrawer } from "../../actions/drawer";
 import styles from "./styles";
 
-
 class Home extends Component {
-  static navigationOptions = {
-    header: null
-  };
-  static propTypes = {
-    name: React.PropTypes.string,
-    setIndex: React.PropTypes.func,
-    list: React.PropTypes.arrayOf(React.PropTypes.string),
-    openDrawer: React.PropTypes.func
-  };
-
-  newPage(index) {
-    this.props.setIndex(index);
-    Actions.blankPage();
-  }
 
   constructor(props) {
     super(props);
+    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
-      isLoading: true
-    }
+      dataSource: ds.cloneWithRows(this.props.navigation.state.params),
+    };
+    console.log(this.state.dataSource)
   }
 
-  componentDidMount() {
-
-    fetch("http://necmettincimen-001-site1.itempurl.com/api/Generic?sql=select%20top%2010%20ContentID%2CHeader%2CDescription%2CSpotImage%20from%20tContentLanguage%20where%20Header!%3D''", {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        sql: 'select ContentID,Header,Description,SpotImage from tContentLanguage',
-      })
-    })
-      .then((response) => response.json())
-      .then((responseJson) => {
-        this.setState({
-          news: responseJson
-        })
-
-      })
-
-    return fetch('http://necmettincimen-001-site1.itempurl.com/api/tBannerLanguage')
-      .then((response) => response.json())
-      .then((responseJson) => {
-
-        this.setState({
-          isLoading: false,
-          banners: responseJson,
-        })
-      })
-  }
+  static navigationOptions = {
+    header: null
+  };
 
   render() {
-    if (this.state.isLoading) {
-      return (
-        <View style={{ flex: 1, paddingTop: 20 }}>
-          <ActivityIndicator />
-        </View>
-      );
-    }
+
     return (
-      <Container style={styles.container} >
-        <Header>
+
+      <Container style={styles.container}>
+
+        <Header style={styles.header}>
           <Left>
 
-            <Button
-              transparent
-              onPress={() => DrawerNav.navigate("DrawerOpen")}
-            >
+            <Button transparent onPress={() => DrawerNav.navigate("DrawerOpen")}>
               <Icon active name="menu" />
             </Button>
 
           </Left>
 
           <Body>
-            <Title>Malatya Belediyesi</Title>
+            <Title style={styles.headerText}>Malatya Belediyesi</Title>
           </Body>
 
-          <Right>
-            <Button
-              transparent
-              onPress={() => {
-                DrawerNav.dispatch(
-                  NavigationActions.reset({
-                    index: 0,
-                    actions: [NavigationActions.navigate({ routeName: "Home" })]
-                  })
-                );
-                DrawerNav.goBack();
-              }}
-            >
-              <Icon active name="person" />
-            </Button>
-          </Right>
         </Header>
         <Content>
-          <View>
-            <Swiper style={styles.wrapper} height={340}
-              dot={<View style={{ backgroundColor: 'rgba(0,0,0,.2)', width: 5, height: 5, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3 }} />}
-              activeDot={<View style={{ backgroundColor: '#000', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3 }} />}
-              autoplay loop showsButtons>
-              {
-                this.state.banners.map((l, i) => (
-                  <View key={i}>
-                    <Image resizeMode='contain' style={styles.image} source={{ uri: 'http://www.malatya.bel.tr/' + l }} />
-                  </View>
-                ))
-              }
 
-            </Swiper>
+          <Swiper style={styles.wrapper} height={300}
+            loop showsButtons>
+            <View style={styles.slide}>
+              <Image resizeMode='stretch' style={styles.image} source={require('../../../images/sanat_sokagi.jpg')} />
 
-            {/* <List>
-              {
-                this.state.news.map((l) => (
-                  <ListItem key={l.ContentID}
-                    button>
+            </View>
+            <View style={styles.slide} >
+              <Image resizeMode='stretch' style={styles.image} source={require('../../../images/sire_pazari.jpg')} />
+            </View>
+            <View style={styles.slide} >
+              <Image resizeMode='stretch' style={styles.image} source={require('../../../images/hurriyet_parki_2.jpg')} />
+            </View>
+            <View style={styles.slide} >
+              <Image resizeMode='stretch' style={styles.image} source={require('../../../images/yasam_merkezi.jpg')} />
+            </View>
+          </Swiper>
 
-                    <Text>{l.Header}
-                    </Text>
 
-                  </ListItem>
-                ))
-              }
-            </List> */}
 
-          </View>
+          <CardItem style={{ backgroundColor: '#2980b9' }}>
+            <Icon name='paper-plane' style={{ color: 'white' }} />
+            <Text style={{ color: 'white', alignSelf: 'center' }}>HABERLER</Text>
+
+          </CardItem>
+
+
+          <ListView
+            dataSource={this.state.dataSource}
+            renderRow={(rowData) =>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate("NewsDetail", rowData)}
+              >
+                <Card>
+                  <CardItem
+                  >
+                    <Icon name='paper' style={{ color: '#2980b9' }} />
+                    <Text numberOfLines={1}>{rowData.Header}</Text>
+                    <Right>
+                      <Icon name="arrow-forward" />
+                    </Right>
+                  </CardItem>
+                </Card>
+              </TouchableOpacity>
+            }
+          />
 
         </Content>
-      </Container >
+
+      </Container>
+
     );
   }
 }
 
-function bindAction(dispatch) {
-  return {
-    setIndex: index => dispatch(setIndex(index)),
-    openDrawer: () => dispatch(openDrawer())
-  };
-}
-const mapStateToProps = state => ({
-  name: state.user.name,
-  list: state.list.list
-});
 
-const HomeSwagger = connect(mapStateToProps, bindAction)(Home);
-const DrawNav = DrawerNavigator(
-  {
-    Home: { screen: HomeSwagger },
-    BlankPage2: { screen: BlankPage2 }
-  },
-  {
-    contentComponent: props => <DrawBar {...props} />
-  }
-);
-const DrawerNav = null;
-DrawNav.navigationOptions = ({ navigation }) => {
-  DrawerNav = navigation;
-  return {
-    header: null
-  };
-};
-export default DrawNav;
+
+export default Home;
