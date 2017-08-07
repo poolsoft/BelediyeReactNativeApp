@@ -16,19 +16,3 @@ export default (StackNav = StackNavigator({
   Page1: { screen: Page1 },
   NewsDetail: { screen: NewsDetail },
 }));
-
-import { openDrawer } from "../../actions/drawer";
-
-import { DrawerNavigator, NavigationActions } from "react-navigation";
-
-import DrawBar from "../DrawBar";
-
-
-const DrawNav = DrawerNavigator(
-  {
-    Home:{screen:Home}
-  },
-  {
-    contentComponent: props => <DrawBar />
-  }
-);
