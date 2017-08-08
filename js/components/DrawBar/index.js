@@ -11,9 +11,24 @@ import {
 } from "native-base";
 
 const routes = [{
-  name:'Anasayfa',
+  name:'    Anasayfa',
   navigateUrl:'Home',
   icon:'home'
+},
+{
+   name:'   Belediye Başkanımız Hakkında',
+  navigateUrl:'baskan',
+  icon:'person'
+},
+{
+   name:'   Malatya',
+  navigateUrl:'Malatya',
+  icon:'map'
+},
+{
+   name:'   Malatyayı Keşfedin',
+  navigateUrl:'kesif',
+  icon:'map'
 }];
 
 export default class DrawBar extends React.Component {
@@ -24,17 +39,7 @@ export default class DrawBar extends React.Component {
     return (
       <Container>
         <Content>
-          <Image
-            source={{
-              uri: "https://github.com/GeekyAnts/NativeBase-KitchenSink/raw/react-navigation/img/drawer-cover.png"
-            }}
-            style={{
-              height: 120,
-              alignSelf: "stretch",
-              justifyContent: "center",
-              alignItems: "center"
-            }}
-          >
+         
             <TouchableOpacity
               style={{
                 height: 120,
@@ -46,13 +51,11 @@ export default class DrawBar extends React.Component {
             >
               <Image
                 square
-                style={{ height: 80, width: 70 }}
-                source={{
-                  uri: "https://github.com/GeekyAnts/NativeBase-KitchenSink/raw/react-navigation/img/logo.png"
-                }}
+                style={{ resizeMode:'stretch'}}
+                source={require('../../../images/icon.png')  }
               />
             </TouchableOpacity>
-          </Image>
+         
           <List
             dataArray={routes}
             renderRow={data => {
@@ -61,8 +64,8 @@ export default class DrawBar extends React.Component {
                   button
                   onPress={() => this.props.navigation.navigate(data.navigateUrl)}
                 >
-            <Icon name={data.icon} style={{ color: '#2980b9' }} />
-                  <Text>{data.name}</Text>
+            <Icon name={data.icon} style={{ color: '#f39c12' }} />
+                  <Text>{ data.name}</Text>
                 </ListItem>
               );
             }}

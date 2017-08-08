@@ -80,13 +80,13 @@ class Home extends Component {
           </Left>
 
           <Body>
-            <Title style={styles.headerText}>Malatya Belediyesi</Title>
+            <Title >Malatya Belediyesi</Title>
           </Body>
 
         </Header>
         <Content>
 
-          <Swiper style={styles.wrapper} height={300}
+          <Swiper style={styles.wrapper} height={250}
             loop showsButtons>
             <View style={styles.slide}>
               <Image resizeMode='stretch' style={styles.image} source={require('../../../images/sanat_sokagi.jpg')} />

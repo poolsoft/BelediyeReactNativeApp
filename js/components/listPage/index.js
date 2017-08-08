@@ -3,7 +3,7 @@ import { ListView, ActivityIndicator, View, AppRegistry, Image, TouchableOpacity
 import { connect } from "react-redux";
 import {
   Container,
-  Header,
+  Header, 
   Title,
   Content,
   Text,

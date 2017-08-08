@@ -39,7 +39,7 @@ class SplashScreen extends Component {
         <StatusBar
           backgroundColor="black"
         />
-        <Image source={{ uri: 'http://tedarik.malatya.bel.tr/Assets/Images/webtvlogo.png' }} style={{ width: 450, height: 120, alignItems: 'center', resizeMode: 'contain', justifyContent: 'center' }} />
+        <Image source={{ uri: 'http://tedarik.malatya.bel.tr/Assets/Images/webtvlogo.png' }} style={{ width: 400, height: 120, alignItems: 'center', resizeMode: 'contain', justifyContent: 'center' }} />
 
 
         <ActivityIndicator size="large" color="#2980b9" style={{
