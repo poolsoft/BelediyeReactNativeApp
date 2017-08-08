@@ -14,11 +14,15 @@ import {
   Card,
   CardItem
 } from "native-base";
+import MapView from 'react-native-maps';
+import styles from "./styles";
 export default class kesif extends React.Component {
   static navigationOptions = {
     header: null
   };
   render() {
+    const { region } = this.props;
+    console.log(region);
     return (
       <Container>
           <Header
@@ -44,9 +48,18 @@ export default class kesif extends React.Component {
 
         </Header>
 
-        <Content>
- 
-        </Content>
+        <View style ={styles.container}>
+        <MapView
+          style={styles.map}
+          region={{
+            latitude: 37.78825,
+            longitude: -122.4324,
+            latitudeDelta: 0.015,
+            longitudeDelta: 0.0121,
+          }}
+        >
+        </MapView>
+      </View>
       </Container>
     );
   }
