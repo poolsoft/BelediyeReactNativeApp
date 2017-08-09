@@ -13,7 +13,7 @@ import {
   Body
 } from "native-base";
 
-class BlankPage2 extends Component {
+class malatya_genelbilgi extends Component {
   static navigationOptions = {
     header: null
   };
@@ -29,7 +29,7 @@ class BlankPage2 extends Component {
           </Left>
 
           <Body>
-            <Title>Blank page</Title>
+            <Title>malatya_genelbilgi</Title>
           </Body>
 
           <Right>
@@ -52,4 +52,4 @@ class BlankPage2 extends Component {
   }
 }
 
-export default BlankPage2;
+export default malatya_genelbilgi;
