@@ -15,6 +15,7 @@ import {
   Card,
   CardItem
 } from "native-base";
+import apis from '../apis'
 
 class baskan extends Component {
   static navigationOptions = {
@@ -38,7 +39,7 @@ class baskan extends Component {
     return apis.getAllByQuery(query).then((res) => {
       this.setState({
           isLoading: false,
-          dataSource: responseJson[0]
+          dataSource: res[0]
         });
     });
 
@@ -46,11 +47,15 @@ class baskan extends Component {
   render() {
     if (this.state.isLoading) {
       return (
-        <View style={{
+     <View style={{
           flex: 1,
-          paddingTop: 20
+          justifyContent: 'center',
+          alignItems: 'center',
         }}>
-          <ActivityIndicator />
+          <Text style={{ color: '#2980b9' }}>Bilgiler Yükleniyor Lütfen Bekleyiniz </Text>
+          <ActivityIndicator size="large" color="#f1c40f" style={{
+            marginTop: 30
+          }} />
         </View>
       );
     }
@@ -98,9 +103,11 @@ class baskan extends Component {
               borderLeftWidth: 5
             }}>
             <CardItem>
-              <Text>
-                {this.dataSource.Description}
-              </Text>
+         
+<Text> {this.state.dataSource.Description}</Text>
+                
+          
+              
             </CardItem>
           </Card>
 

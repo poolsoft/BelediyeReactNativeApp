@@ -5,6 +5,7 @@ import { ActivityIndicator, ListView, View, Image } from 'react-native';
 import styles from "./styles";
 import HTMLView from 'react-native-htmlview';
 import { Dimensions, ScrollView } from 'react-native';
+import apis from '../../apis'
 
 const { width } = Dimensions.get('window')
 
@@ -21,20 +22,16 @@ class malatya_ilce extends Component {
 
   componentDidMount() {
     let query = "SELECT  `Header` ,  `Description` ,  `SpotImage` FROM  `tcontentlanguage` WHERE  `ContentID` >28 AND  `ContentID` <43 ORDER BY  `tcontentlanguage`.`Header` ASC LIMIT 0 , 30"
-    return fetch('SELECT%20*%20FROM%20%60tcontentlanguage%60%20WHERE%20%60ContentID%60%20>28%20AND%20%60ContentID%60%20<43%20ORDER%20BY%20%60tcontentlanguage%60.%60Header%60%20ASC%20LIMIT%200%20,%2030')
-      .then((response) => response.json())
-      .then((responseJson) => {
-        let ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
-        this.setState({
+    
+       return apis.getAllByQuery(query).then((res) => {         
+      this.setState({
           isLoading: false,
-          dataSource: ds.cloneWithRows(responseJson),
-        }, function () {
-          // do something with new state
+          dataSource: res
         });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    });
+
+ 
+   
   }
   render() {
     const { props: { name, index, list } } = this;
