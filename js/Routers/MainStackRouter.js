@@ -6,6 +6,7 @@ import NewsDetail from "../components/newsDetail";
 import kesif from "../components/kesif";
 import baskan from "../components/baskan";
 import malatya from "../components/malatya";
+import malatya_ilce from "../components/malatya/malatya_ilce";
 
 
 import HomeDrawerRouter from "./HomeDrawerRouter";
@@ -21,5 +22,7 @@ export default (StackNav = StackNavigator({
   kesif: { screen: kesif },
   baskan: { screen: baskan },
     malatya: { screen: malatya },
+                malatya_ilce: { screen: malatya_ilce },
+
 
 }));

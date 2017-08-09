@@ -29,7 +29,7 @@ class NewsDetail extends Component {
 
     return (
 
-      <Container>
+      <Container >
         <Header
           style={{
           backgroundColor: 'transparent',
@@ -53,7 +53,7 @@ class NewsDetail extends Component {
 
         </Header>
 
-        <Content padder>
+        <Content padder >
           <Image
             style={{
             height: 200,

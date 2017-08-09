@@ -119,8 +119,7 @@ class Home extends Component {
                 onPress={() => this.props.navigation.navigate("NewsDetail", rowData)}
               >
                 <Card>
-                  <CardItem
-                  >
+                  <CardItem>
                     <Icon name='paper' style={{ color: '#2980b9' }} />
                     <Text numberOfLines={1}>{rowData.Header}</Text>
                     <Right>
