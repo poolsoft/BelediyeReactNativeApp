@@ -22,7 +22,7 @@ const routes = [{
 },
 {
    name:'   Malatya',
-  navigateUrl:'Malatya',
+  navigateUrl:'malatya',
   icon:'map'
 },
 {

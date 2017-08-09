@@ -5,6 +5,8 @@ import Page1 from "../components/home";
 import NewsDetail from "../components/newsDetail";
 import kesif from "../components/kesif";
 import baskan from "../components/baskan";
+import malatya from "../components/malatya";
+
 
 import HomeDrawerRouter from "./HomeDrawerRouter";
 
@@ -18,5 +20,6 @@ export default (StackNav = StackNavigator({
   NewsDetail: { screen: NewsDetail },
   kesif: { screen: kesif },
   baskan: { screen: baskan },
+    malatya: { screen: malatya },
 
 }));
