@@ -19,7 +19,7 @@ class SplashScreen extends Component {
 
     let query = 'SELECT `Header`,`Description`,`SpotImage` FROM `tcontentlanguage` ORDER BY  `tcontentlanguage`.`ContentID` DESC LIMIT 0 , 30';
     
-    var data = apis.getAllByQuery(query).then((res) => {
+    apis.getAllByQuery(query).then((res) => {
       this.props.navigation.navigate("Page1", res)
     });
 
