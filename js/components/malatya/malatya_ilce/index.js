@@ -20,7 +20,8 @@ class malatya_ilce extends Component {
   }
 
   componentDidMount() {
-    return fetch('http://devloop.necmettincimen.com/index.php/api/query/SELECT%20*%20FROM%20%60tcontentlanguage%60%20WHERE%20%60ContentID%60%20>28%20AND%20%60ContentID%60%20<43%20ORDER%20BY%20%60tcontentlanguage%60.%60Header%60%20ASC%20LIMIT%200%20,%2030')
+    let query = "SELECT  `Header` ,  `Description` ,  `SpotImage` FROM  `tcontentlanguage` WHERE  `ContentID` >28 AND  `ContentID` <43 ORDER BY  `tcontentlanguage`.`Header` ASC LIMIT 0 , 30"
+    return fetch('SELECT%20*%20FROM%20%60tcontentlanguage%60%20WHERE%20%60ContentID%60%20>28%20AND%20%60ContentID%60%20<43%20ORDER%20BY%20%60tcontentlanguage%60.%60Header%60%20ASC%20LIMIT%200%20,%2030')
       .then((response) => response.json())
       .then((responseJson) => {
         let ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });

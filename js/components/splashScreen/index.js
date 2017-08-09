@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Image, ActivityIndicator, StatusBar } from 'react-native';
 
+import apis from '../apis'
 
 class SplashScreen extends Component {
   static navigationOptions = {
@@ -15,16 +16,13 @@ class SplashScreen extends Component {
   }
 
   componentDidMount() {
-    return fetch('http://devloop.necmettincimen.com/index.php/api/query/SELECT%20%60Header%60%20,%20%60Description%60%20,%20%60SpotImage%60%20,%20%60PostUrl%60%20FROM%20%60tcontentlanguage%60%20ORDER%20BY%20%60tcontentlanguage%60.%60ContentID%60%20DESC%20LIMIT%200%20,%2030')
-      .then((response) => response.json())
-      .then((responseJson) => {
 
-        this.props.navigation.navigate("Page1", responseJson)
+    let query = 'SELECT `Header`,`Description`,`SpotImage` FROM `tcontentlanguage` ORDER BY  `tcontentlanguage`.`ContentID` DESC LIMIT 0 , 30';
+    
+    var data = apis.getAllByQuery(query).then((res) => {
+      this.props.navigation.navigate("Page1", res)
+    });
 
-      })
-      .catch((error) => {
-        console.error(error);
-      });
   }
 
   render() {

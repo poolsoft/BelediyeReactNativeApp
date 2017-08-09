@@ -8,7 +8,6 @@ import baskan from "../components/baskan";
 import malatya from "../components/malatya";
 import malatya_ilce from "../components/malatya/malatya_ilce";
 import malatya_genelbilgi from "../components/malatya/malatya_genelbilgi";
-import malatya_kayısı from "../components/malatya/malatya_kayısı";
 import malatya_tarih from "../components/malatya/malatya_tarih";
 import malatya_yasam from "../components/malatya/malatya_yasam";
 
@@ -26,7 +25,6 @@ export default (StackNav = StackNavigator({
   baskan: { screen: baskan },
   malatya: { screen: malatya },
   malatya_genelbilgi: { screen: malatya_genelbilgi },
-  malatya_kayısı: { screen: malatya_kayısı },
   malatya_tarih: { screen: malatya_tarih },
   malatya_yasam: { screen: malatya_yasam },
   malatya_ilce: { screen: malatya_ilce },

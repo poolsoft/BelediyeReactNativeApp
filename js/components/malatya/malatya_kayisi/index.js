@@ -13,7 +13,7 @@ import {
   Body
 } from "native-base";
 
-class malatya_kayısı extends Component {
+class malatya_kayisi extends Component {
   static navigationOptions = {
     header: null
   };
@@ -52,4 +52,4 @@ class malatya_kayısı extends Component {
   }
 }
 
-export default malatya_kayısı;
+export default malatya_kayisi;
