@@ -72,7 +72,7 @@ export default class Malatya extends Component {
 
                             <Card style={{ height: 100 }}>
                                 <CardItem style={{justifyContent:'center',alignItems:'center'}}>
-                                    <Icon name='document' style={{ color: '#f1c40f' }} />
+                                    <Icon name='document' style={{ color: '#FF8E00' }} />
                                     <Text style={{textAlign:'center'}}>Malatya Genel Bilgi  </Text>
                                     <Right>
                                         <Icon name="arrow-forward" />
@@ -87,7 +87,7 @@ export default class Malatya extends Component {
                             <TouchableOpacity
                                 onPress={() => this.props.navigation.navigate()}>
                                 <CardItem >
-                                    <Icon name='ios-leaf' style={{ color: '#f1c40f' }} />
+                                    <Icon name='ios-leaf' style={{ color: '#FF8E00' }} />
                                     <Text>Malatya'nın  Tarihi  </Text>
                                     <Right>
                                         <Icon name="arrow-forward" />
@@ -100,7 +100,7 @@ export default class Malatya extends Component {
                             <TouchableOpacity
                                 onPress={() => this.props.navigation.navigate("ilceler")}>
                                 <CardItem >
-                                    <Icon name='ios-image' style={{ color: '#f1c40f' }} />
+                                    <Icon name='ios-image' style={{ color: '#FF8E00' }} />
 
                                     <Text>Malatya'nın  İlçeleri  </Text>
                                     <Right>
@@ -115,7 +115,7 @@ export default class Malatya extends Component {
                             <TouchableOpacity
                                 onPress={() => this.props.navigation.navigate()}>
                                 <CardItem >
-                                    <Icon name='ios-bicycle' style={{ color: '#f1c40f' }} />
+                                    <Icon name='ios-bicycle' style={{ color: '#FF8E00' }} />
                                     <Text>Malatya'da Yaşam  </Text>
                                     <Right>
                                         <Icon name="arrow-forward" />
@@ -127,7 +127,7 @@ export default class Malatya extends Component {
                             <TouchableOpacity
                                 onPress={() => this.props.navigation.navigate()}>
                                 <CardItem >
-                                    <Icon name='ios-heart' style={{ color: '#f1c40f' }} />
+                                    <Icon name='ios-heart' style={{ color: '#FF8E00' }} />
                                     <Text>Malatya ve Kayısı </Text>
                                     <Right>
                                         <Icon name="arrow-forward" />

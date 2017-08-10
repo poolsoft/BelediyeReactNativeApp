@@ -49,6 +49,12 @@ export default class Menuler extends Component {
 
                             <Text><Icon name="heart" style={{ color: '#FF8E00' }} />  Malatyam</Text>
                         </ListItem>
+                                <ListItem
+                            button
+                            onPress={() => this.props.navigation.navigate("Harita")}>
+
+                            <Text><Icon name="map" style={{ color: '#FF8E00' }} />  Malatya'yı Keşfet</Text>
+                        </ListItem>
 
                     </List>
 
