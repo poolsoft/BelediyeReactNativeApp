@@ -32,7 +32,7 @@ import devLoop from '../../services';
 
 const { width } = Dimensions.get('window')
 
-export default class Malatya extends Component {
+export default class ilceler extends Component {
 
     render() {
 
@@ -68,7 +68,7 @@ export default class Malatya extends Component {
 
                     <List >
                         <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate("ilce")}>
+                            onPress={() => this.props.navigation.navigate("Ilceler")}>
 
                             <Card style={{ height: 100 }}>
                                 <CardItem style={{justifyContent:'center',alignItems:'center'}}>
