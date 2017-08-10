@@ -8,8 +8,8 @@ import Menuler from './app/views/menuler';
 import HaberDetay from './app/views/haberDetay';
 import BaskanBilgileri from './app/views/baskanBilgileri';
 import Malatya from './app/views/malatya';
-import Ilceler from './app/views/malatya/ilceler';
-
+import ilceler from './app/views/ilceler';
+import Genelbilgi from './app/views/genelbilgi';
 const BelediyeMobileApp = DrawerNavigator(
   {
     Splash: { screen: Splash },
@@ -18,6 +18,7 @@ const BelediyeMobileApp = DrawerNavigator(
     BaskanBilgileri: { screen: BaskanBilgileri },
     Malatya: { screen: Malatya },
     ilceler: { screen: ilceler },
+    Genelbilgi: { screen: Genelbilgi },
     
   },
   {

@@ -59,11 +59,7 @@ export default class HaberDetay extends Component {
                     </Left>
 
                     <Body>
-                        <Title style={{
-                            fontSize: 20,
-                            textAlign: 'center',
-                            margin: 10,
-                        }}>Haber Detay</Title>
+                        <Title >{this.state.dataSource.Header}</Title>
                     </Body>
 
                 </Header>

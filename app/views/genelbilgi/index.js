@@ -22,7 +22,8 @@ import {
     Card,
     Right,
     Body,
-    Title
+    Title,
+    List
 } from "native-base";
 
 
@@ -30,17 +31,16 @@ import devLoop from '../../services';
 
 const { width } = Dimensions.get('window')
 
-export default class BaskanBilgileri extends Component {
-    constructor(props) {
+export default class Genelbilgi extends Component {
+      constructor(props) {
         super(props);
         this.state = {
             isLoading: true
         }
     }
+  componentDidMount() {
 
-    componentDidMount() {
-
-        let query = 'SELECT * FROM `tcontentlanguage` WHERE `ContentID` =22 ';
+        let query = 'SELECT * FROM `tcontentlanguage` where `ContentID` =27';
 
         return devLoop.getAllByQuery(query).then((res) => {
             this.setState({
@@ -52,35 +52,7 @@ export default class BaskanBilgileri extends Component {
 
     }
     render() {
-        if (this.state.isLoading) {
-            return (
-                <Container>
-                    <Content>
-                        <Header style={{
-                            backgroundColor: '#FF8E00'
-                        }}>
-                            <StatusBar backgroundColor="#FF8E00" />
 
-                            <Left>
-
-                                <Button transparent onPress={() => this.props.navigation.navigate("DrawerOpen")}>
-                                    <Icon active name="menu" />
-                                </Button>
-
-                            </Left>
-
-                            <Body>
-                                <Title>Belediye Başkanımız</Title>
-                            </Body>
-
-                        </Header>
-
-                        <ActivityIndicator color="#FF8E00" />
-
-                    </Content>
-                </Container>
-            );
-        }
         return (
 
             <Container style={{
@@ -94,9 +66,9 @@ export default class BaskanBilgileri extends Component {
 
                     <Left>
 
-                                <Button transparent onPress={() => this.props.navigation.navigate("DrawerOpen")}>
-                                    <Icon active name="menu" />
-                                </Button>
+                        <Button transparent onPress={() => this.props.navigation.navigate("DrawerOpen")}>
+                            <Icon active name="menu" />
+                        </Button>
 
                     </Left>
 
@@ -105,11 +77,11 @@ export default class BaskanBilgileri extends Component {
                             fontSize: 20,
                             textAlign: 'center',
                             margin: 10,
-                        }}>Belediye Başkanımız</Title>
+                        }}> Malatya Genel Bilgi</Title>
                     </Body>
 
                 </Header>
-                <ScrollView>
+               <ScrollView>
 
                     <Image resizeMode='stretch' style={{
                         width: width,

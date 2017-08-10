@@ -3,7 +3,7 @@ import {
     ActivityIndicator,
     StyleSheet,
     Text,
-    View
+    View,Image
 } from 'react-native';
 
 import {
@@ -11,7 +11,8 @@ import {
     Content,
     List,
     ListItem,
-    Icon
+    Icon,
+    Thumbnail
 } from 'native-base';
 
 import styles from './styles';
@@ -22,7 +23,9 @@ export default class Menuler extends Component {
         return (
             <Container>
                 <Content>
-                    <Text style={styles.welcome}>Malatya Büyükşehir Belediyesi</Text>
+                    
+                                    <Image source={{ uri: 'https://seeklogo.com/images/M/malatya-belediyesi-logo-832ED34E86-seeklogo.com.png' }}
+                                        style={{ resizeMode: 'contain',height:150,width:150,alignSelf:'center' }} />
 
                     <List>
 

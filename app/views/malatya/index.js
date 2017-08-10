@@ -68,7 +68,7 @@ export default class Malatya extends Component {
 
                     <List >
                         <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate("ilce")}>
+                            onPress={() => this.props.navigation.navigate("Genelbilgi")}>
 
                             <Card style={{ height: 100 }}>
                                 <CardItem style={{justifyContent:'center',alignItems:'center'}}>
@@ -98,7 +98,7 @@ export default class Malatya extends Component {
 
                         <Card style={{ height: 100 }}>
                             <TouchableOpacity
-                                onPress={() => this.props.navigation.navigate()}>
+                                onPress={() => this.props.navigation.navigate("ilceler")}>
                                 <CardItem >
                                     <Icon name='ios-image' style={{ color: '#f1c40f' }} />
 
