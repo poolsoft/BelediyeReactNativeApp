@@ -20,14 +20,23 @@ export default class Splash extends Component {
     }
     render() {
         return (
-            <View style={styles.container}>
-                <StatusBar backgroundColor="#FF8E00" />
+              <View style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'black'
+      }}>
+        <StatusBar
+          backgroundColor="black"
+        />
 
-                <Text style={styles.welcome}>
-                    Malatya Büyükşehir Belediyesi
-        </Text>
-                <ActivityIndicator color="white" style={styles.instructions} />
-            </View>
+
+        <ActivityIndicator size="large" color="#2980b9" style={{
+          marginTop: 30
+        }} />
+
+      </View>
+         
         );
     }
 }
