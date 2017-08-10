@@ -71,15 +71,9 @@ export default class Malatya extends Component {
                             onPress={() => this.props.navigation.navigate("Genelbilgi", { query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 27' })}>
 
                             <Card style={{ height: 100 }}>
-<<<<<<< HEAD
-                                <CardItem style={{justifyContent:'center',alignItems:'center'}}>
-                                    <Icon name='document' style={{ color: '#FF8E00' }} />
-                                    <Text style={{textAlign:'center'}}>Malatya Genel Bilgi  </Text>
-=======
                                 <CardItem style={{ justifyContent: 'center', alignItems: 'center' }}>
                                     <Icon name='document' style={{ color: '#f1c40f' }} />
                                     <Text style={{ textAlign: 'center' }}>Malatya Genel Bilgi  </Text>
->>>>>>> 825d8819cd7cd849f310bc3e79e6c860b5dfad51
                                     <Right>
                                         <Icon name="arrow-forward" />
                                     </Right>

@@ -8,7 +8,8 @@ import {
     ListView,
     TouchableOpacity,
     Dimensions,
-    ScrollView
+    ScrollView,
+    StyleSheet
 } from 'react-native';
 
 import {
@@ -26,13 +27,18 @@ import {
     List
 } from "native-base";
 
+import MapView from 'react-native-maps';
+
 import devLoop from '../../services';
+
+const { width } = Dimensions.get('window');
 
 export default class Harita extends Component {
     render() {
+        const { region } = this.props;
         return (
             <Container>
-                    <Header style={{
+                <Header style={{
                     backgroundColor: '#FF8E00'
                 }}>
                     <StatusBar backgroundColor="#FF8E00" />
@@ -54,12 +60,73 @@ export default class Harita extends Component {
                     </Body>
 
                 </Header>
-                <Content>
-                    
-                                                    
+                <View style={{
+                    width: width,
+                    height: 300,
+                    justifyContent: "center",
+                    alignItems: "center"
+                }}>
 
-                </Content>
-            </Container>
+                    <MapView
+                        style={{
+                            ...StyleSheet.absoluteFillObject,
+                        }}
+                        region={{
+                            latitude: 38.348615,
+                            longitude: 38.294145,
+                            latitudeDelta: 0.015,
+                            longitudeDelta: 0.0121,
+                        }}
+                    >
+                        <MapView.Marker
+                            coordinate={{
+                                latitude: 38.348615,
+                                longitude: 38.294145,
+                            }}
+                        />
+                    </MapView>
+
+                </View>
+
+                <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
+                    <TouchableOpacity
+                    onPress={() => this.props.navigation.navigate("HaritaDetay", { title:'Restaurant ve Kafeler', query: 'restorants' })}
+                     style={{
+                        width: width / 2, height: 100, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center',
+                    }}>
+                        <Icon style={{ color: '#FF8E00' }} name='restaurant' />
+                        <Text style={{color:"#FF8E00"}}>Restaurant ve Kafeler</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{ width: width / 2, height: 100, alignItems: 'center', justifyContent: 'center', }}>
+                        <Icon style={{ color: '#FF8E00' }} name='ios-star' />
+                        <Text style={{ color: '#FF8E00' }}>Kurumsal Yerler</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={{ flex: 1, flexDirection: 'row' }}>
+                    <TouchableOpacity style={{ width: width / 2, height: 100, alignItems: 'center', justifyContent: 'center', }}>
+                        <Icon style={{ color: '#FF8E00' }} name='ios-bicycle' />
+                        <Text style={{ color: '#FF8E00' }}>Gezilcek Yerler</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{ width: width / 2, height: 100, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center', }}>
+                        <Icon style={{ color: '#FF8E00' }} name='ios-search' />
+                        <Text style={{ color: '#FF8E00' }}>Konum Bul</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={{ flex: 1, flexDirection: 'row' }}>
+                    <TouchableOpacity style={{ width: width / 2, height: 100, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center', }}>
+                        <Icon style={{ color: '#FF8E00' }} name='ios-bicycle' />
+                        <Text style={{ color: '#FF8E00' }}>Gezilcek Yerler</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{ width: width / 2, height: 100, alignItems: 'center', justifyContent: 'center', }}>
+                        <Icon style={{ color: '#FF8E00' }} name='ios-search' />
+                        <Text style={{ color: '#FF8E00' }}>Konum Bul</Text>
+                    </TouchableOpacity>
+                </View>
+
+
+            </Container >
         );
     }
 }
