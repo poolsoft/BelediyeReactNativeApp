@@ -79,11 +79,11 @@ export default class Harita extends Component {
                         }}
                     >
                         <MapView.Marker
-                            coordinate={{
+                          coordinate={{
                                 latitude: 38.348615,
                                 longitude: 38.294145,
                             }}
-                        />
+                        />  
                     </MapView>
 
                 </View>

@@ -51,7 +51,10 @@ export default class HaritaDetay extends Component {
             this.setState({
                 isLoading: false,
                 dataSource: ds.cloneWithRows(res.results),
+                markers: res.results
             });
+                debugger;
+            
         });
 
     }
@@ -98,7 +101,7 @@ export default class HaritaDetay extends Component {
                 </Header>
                 <View style={{
                     width: width,
-                    height: 300,
+                    height: 200,
                     justifyContent: "center",
                     alignItems: "center"
                 }}>
@@ -113,15 +116,14 @@ export default class HaritaDetay extends Component {
                             latitudeDelta: 0.015,
                             longitudeDelta: 0.0121,
                         }}
+
                     >
-                        {
-                            this.state.dataSource.map((rowData) => {
-                                <MapView.Marker
-                                    coordinate={rowData.geometry.location}
-                                />
-                            })
-                        }
+                       
+
+                       
+                    
                     </MapView>
+
 
 
 
@@ -134,7 +136,7 @@ export default class HaritaDetay extends Component {
                         dataSource={this.state.dataSource}
                         renderRow={(rowData) =>
                             <TouchableOpacity
-                                onPress={() => this.props.navigation.navigate("HaberDetay", rowData)}
+                                onPress={() => this.props.navigation.navigate("Haritaicerik", rowData)}
                             >
                                 <Card>
                                     <CardItem>
