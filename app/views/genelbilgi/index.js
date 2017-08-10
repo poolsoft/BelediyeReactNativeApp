@@ -32,26 +32,41 @@ import devLoop from '../../services';
 const { width } = Dimensions.get('window')
 
 export default class Genelbilgi extends Component {
-      constructor(props) {
+    constructor(props) {
         super(props);
         this.state = {
             isLoading: true
         }
     }
-  componentDidMount() {
+    componentDidMount() {
 
-        let query = 'SELECT * FROM `tcontentlanguage` where `ContentID` =27';
+        let query = this.props.navigation.state.params.query;
+        // let query = 'SELECT * FROM `tcontentlanguage` where `ContentID` =27';
 
         return devLoop.getAllByQuery(query).then((res) => {
             this.setState({
                 isLoading: false,
                 dataSource: res[0]
             });
-            debugger;
         });
 
     }
     render() {
+
+        if (this.state.isLoading) {
+            return (
+                <View style={{
+                    flex: 1,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}>
+                    <Text style={{ color: '#FF8E00' }}>Bilgiler Yükleniyor Lütfen Bekleyiniz </Text>
+                    <ActivityIndicator  color="#FF8E00" style={{
+                        marginTop: 30
+                    }} />
+                </View>
+            );
+        }
 
         return (
 
@@ -81,7 +96,7 @@ export default class Genelbilgi extends Component {
                     </Body>
 
                 </Header>
-               <ScrollView>
+                <ScrollView>
 
                     <Image resizeMode='stretch' style={{
                         width: width,

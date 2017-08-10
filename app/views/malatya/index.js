@@ -68,12 +68,18 @@ export default class Malatya extends Component {
 
                     <List >
                         <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate("Genelbilgi")}>
+                            onPress={() => this.props.navigation.navigate("Genelbilgi", { query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 27' })}>
 
                             <Card style={{ height: 100 }}>
+<<<<<<< HEAD
                                 <CardItem style={{justifyContent:'center',alignItems:'center'}}>
                                     <Icon name='document' style={{ color: '#FF8E00' }} />
                                     <Text style={{textAlign:'center'}}>Malatya Genel Bilgi  </Text>
+=======
+                                <CardItem style={{ justifyContent: 'center', alignItems: 'center' }}>
+                                    <Icon name='document' style={{ color: '#f1c40f' }} />
+                                    <Text style={{ textAlign: 'center' }}>Malatya Genel Bilgi  </Text>
+>>>>>>> 825d8819cd7cd849f310bc3e79e6c860b5dfad51
                                     <Right>
                                         <Icon name="arrow-forward" />
                                     </Right>
@@ -85,7 +91,7 @@ export default class Malatya extends Component {
 
                         <Card style={{ height: 100 }} >
                             <TouchableOpacity
-                                onPress={() => this.props.navigation.navigate()}>
+                                onPress={() => this.props.navigation.navigate("Genelbilgi", { query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 28' })}>
                                 <CardItem >
                                     <Icon name='ios-leaf' style={{ color: '#FF8E00' }} />
                                     <Text>Malatya'nın  Tarihi  </Text>
@@ -113,7 +119,7 @@ export default class Malatya extends Component {
 
                         <Card style={{ height: 100 }}>
                             <TouchableOpacity
-                                onPress={() => this.props.navigation.navigate()}>
+                                onPress={() => this.props.navigation.navigate("Genelbilgi", { query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 43' })}>
                                 <CardItem >
                                     <Icon name='ios-bicycle' style={{ color: '#FF8E00' }} />
                                     <Text>Malatya'da Yaşam  </Text>
@@ -125,7 +131,7 @@ export default class Malatya extends Component {
                         </Card>
                         <Card style={{ height: 100 }}>
                             <TouchableOpacity
-                                onPress={() => this.props.navigation.navigate()}>
+                                onPress={() => this.props.navigation.navigate("Genelbilgi", { query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 44' })}>
                                 <CardItem >
                                     <Icon name='ios-heart' style={{ color: '#FF8E00' }} />
                                     <Text>Malatya ve Kayısı </Text>
