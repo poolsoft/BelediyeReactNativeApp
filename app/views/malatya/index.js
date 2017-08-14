@@ -80,8 +80,11 @@ export default class Malatya extends Component {
                     </Body>
                     <Right></Right>
                 </Header>
-                <Content padder>
-
+                <Content >
+<Card>
+                    <Image source={{uri:'https://i.hizliresim.com/1nLZ71.jpg'}}
+style={{resizeMode:'stretch',height:250,width:400}}/>
+</Card>
                     <List>
                         <TouchableOpacity
                             onPress={() => this.props.navigation.navigate("Genelbilgi", {title:'Malatya Genel Bilgi', query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 27' })}>
@@ -109,6 +112,7 @@ export default class Malatya extends Component {
                         </TouchableOpacity>
 
                     </List>
+                    
 
                 </Content>
 

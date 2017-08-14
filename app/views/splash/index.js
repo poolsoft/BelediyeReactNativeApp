@@ -4,7 +4,8 @@ import {
     StatusBar,
     StyleSheet,
     Text,
-    View
+    View,
+    Image
 } from 'react-native';
 
 import styles from './styles';
@@ -24,14 +25,16 @@ export default class Splash extends Component {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'black'
+        backgroundColor: 'white'
       }}>
         <StatusBar
-          backgroundColor="black"
+          backgroundColor="white"
         />
+<Image source={{uri:'http://tedarik.malatya.bel.tr/Assets/Images/webtvlogo.png'}}
+style={{height:100,width:350,
+resizeMode:'stretch'}}/>
 
-
-        <ActivityIndicator size="large" color="#2980b9" style={{
+        <ActivityIndicator size="large" color="#FF8E00" style={{
           marginTop: 30
         }} />
 

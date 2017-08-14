@@ -62,7 +62,7 @@ export default class Harita extends Component {
                 </Header>
                 <View style={{
                     width: width,
-                    height: 350,
+                    height: 300,
                     justifyContent: "center",
                     alignItems: "center"
                 }}>
@@ -87,22 +87,30 @@ export default class Harita extends Component {
                         />
                     </MapView>
 
-                </View>
 
-                <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
+
+                </View>
+                <View>
+                    <CardItem style={{ backgroundColor: '#FF8E00' }}>
+                    </CardItem>
+                </View>
+                <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', top: 0 }}>
+
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate("HaritaDetay", { title: 'Camiler', query: 'mosque' })}
                         style={{
                             width: width / 2, height: 100, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center',
                         }}>
-                        <Icon style={{ color: '#FF8E00' }} name='ios-bicycle' />
-                        <Text style={{ color: '#FF8E00' }}>Camiler</Text>
+                        <Image source={{ uri: 'https://images.vexels.com/media/users/3/137734/isolated/preview/d02e892fea06ea885d25bad9d0d207c4-mosque-islam-flat-by-vexels.png' }}
+                            style={{ marginLeft: 20, marginTop: 15, width: 50, height: 50 }} />
+                        <Text style={{ color: '#FF8E00' }}>     Camiler</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate("HaritaDetay", { title: 'Magazalar', query: 'store' })}
-                        style={{ width: width / 2, height: 100, alignItems: 'center', justifyContent: 'center', }}>
-                        <Icon style={{ color: '#FF8E00' }} name='ios-star' />
-                        <Text style={{ color: '#FF8E00' }}>Magazalar</Text>
+                        style={{ width: width / 2, height: 100, alignItems: 'center', backgroundColor: 'white', justifyContent: 'center', }}>
+                        <Image source={{ uri: 'https://cdn0.iconfinder.com/data/icons/e-commerce-and-shopping-2/512/shop_store_market_shopping_cafe_retail_sale_trading_trade_products_commerce_marketplace_bar_bistro_grocery_building_service_business_flat_design_icon-512.png' }}
+                            style={{ marginLeft: 20, marginTop: 15, width: 50, height: 50 }} />
+                        <Text style={{ color: '#FF8E00' }}>   Magazalar</Text>
                     </TouchableOpacity>
                 </View>
 
@@ -110,19 +118,21 @@ export default class Harita extends Component {
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate("HaritaDetay", { title: 'Restaurantlar', query: 'food' })}
                         style={{
-                            width: width / 2, height: 100, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center',
+                            width: width / 2, height: 100,  alignItems: 'center', justifyContent: 'center',
                         }}>
-                        <Icon style={{ color: '#FF8E00' }} name='restaurant' />
-                        <Text style={{ color: "#FF8E00" }}>Restaurantlar</Text>
+                        <Image source={{ uri: 'https://cdn1.iconfinder.com/data/icons/travel-colored-icons-vol-1/48/037-512.png' }}
+                            style={{ marginLeft: 20, marginTop: 0, width: 50, height: 50 }} />
+                        <Text style={{ color: "#FF8E00", }}>    Restaurantlar</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate("HaritaDetay", { title: 'ATM', query: 'atm' })}
                         style={{
-                            width: width / 2, height: 100, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center',
+                            width: width / 2, height: 100,  alignItems: 'center', justifyContent: 'center',
                         }}>
-                        <Icon style={{ color: '#FF8E00' }} name='ios-search' />
-                        <Text style={{ color: '#FF8E00' }}>ATM</Text>
+                        <Image source={{ uri: 'https://www.shareicon.net/download/2016/07/06/105730_money_512x512.png' }}
+                            style={{ marginLeft: 20, marginTop: 0, width: 50, height: 50 }} />
+                        <Text style={{ color: '#FF8E00' }}>   ATM</Text>
                     </TouchableOpacity>
                 </View>
 
@@ -132,15 +142,18 @@ export default class Harita extends Component {
                         style={{
                             width: width / 2, height: 100, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center',
                         }}>
-                        <Icon style={{ color: '#FF8E00' }} name='ios-bicycle' />
-                        <Text style={{ color: '#FF8E00' }}>Hastaneler</Text>
+                        <Image source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL7juLL0XPSSGK2aAQ_v7_pIU8sGwF9rCnSmaIzuvs-ThqUBr-' }}
+                            style={{ marginLeft: 20, marginTop: 0, width: 50, height: 50 }} />
+                        <Text style={{ color: '#FF8E00' }}>    Hastaneler</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate("HaritaDetay", { title: 'Polis Merkezi', query: 'police' })}
                         style={{
                             width: width / 2, height: 100, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center',
                         }}>
-                        <Icon style={{ color: '#FF8E00' }} name='ios-search' />
+                        <Image source={{ uri: 'https://cdn1.iconfinder.com/data/icons/law-and-justice-icons-1/512/Law_26-19-512.png' }}
+                            style={{ marginLeft: 20, marginTop: 0, width: 50, height: 50 }} />
+
                         <Text style={{ color: '#FF8E00' }}>Polis Merkezi</Text>
                     </TouchableOpacity>
                 </View>

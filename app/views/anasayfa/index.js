@@ -64,7 +64,7 @@ export default class Anasayfa extends Component {
                 <Content>
 
                     <Swiper style={styles.wrapper} height={250}
-                        loop showsButtons>
+                        loop showsButtons autoplay>
                         <View style={styles.slide}>
                             <Image resizeMode='stretch' style={styles.image} source={require('../../images/sanat_sokagi.jpg')} />
 

@@ -81,8 +81,8 @@ export default class Genelbilgi extends Component {
 
                     <Left>
 
-                        <Button transparent onPress={() => this.props.navigation.navigate("DrawerOpen")}>
-                            <Icon active name="menu" />
+                        <Button transparent onPress={() => this.props.navigation.navigate("Malatya")}>
+                            <Icon active name="ios-arrow-back" />
                         </Button>
 
                     </Left>

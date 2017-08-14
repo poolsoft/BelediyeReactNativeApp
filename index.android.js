@@ -12,6 +12,9 @@ import Genelbilgi from './app/views/genelbilgi';
 import Harita from './app/views/harita';
 import HaritaDetay from './app/views/haritaDetay';
 import Haritaicerik from './app/views/haritaicerik';
+import Hakkimizda from './app/views/hakkimizda';
+import Hakkimizdaicerik from './app/views/hakkimizdaicerik';
+
 
 
 const BelediyeMobileApp = DrawerNavigator(
@@ -25,6 +28,10 @@ const BelediyeMobileApp = DrawerNavigator(
     Harita: { screen: Harita },
     HaritaDetay: { screen: HaritaDetay },
     Haritaicerik: { screen: Haritaicerik },
+    Hakkimizda: { screen: Hakkimizda },
+    Hakkimizdaicerik: { screen: Hakkimizdaicerik },
+    
+    
     
   },
   {

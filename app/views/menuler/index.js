@@ -55,6 +55,12 @@ export default class Menuler extends Component {
 
                             <Text><Icon name="map" style={{ color: '#FF8E00' }} />  Malatya'yı Keşfet</Text>
                         </ListItem>
+                          <ListItem
+                            button
+                            onPress={() => this.props.navigation.navigate("Hakkimizda")}>
+
+                            <Text><Icon name="ios-star-half" style={{ color: '#FF8E00' }} />Hakkımızda</Text>
+                        </ListItem>
 
                     </List>
 
