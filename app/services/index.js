@@ -7,7 +7,7 @@ var devLoop = {
         return fetch(url + query).then((response) => response.json())
     },
     getAllMapPlacesByQuery(query) {
-        return fetch(mapUrl + 'place/textsearch/json?query='+ query +'%20in%20malatya&key='+mapApiKey).then((response) => response.json())
+        return fetch(mapUrl + 'place/nearbysearch/json?location=38.348615,38.294145&radius=5000&type=' + query + '&key=' + mapApiKey).then((response) => response.json())
     }
 }
 

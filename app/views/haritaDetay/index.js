@@ -105,8 +105,8 @@ export default class HaritaDetay extends Component {
 
                     <Left>
 
-                        <Button transparent onPress={() => this.props.navigation.navigate("DrawerOpen")}>
-                            <Icon active name="menu" />
+                        <Button transparent onPress={() => this.props.navigation.navigate("Harita")}>
+                            <Icon active name="ios-arrow-back" />
                         </Button>
 
                     </Left>

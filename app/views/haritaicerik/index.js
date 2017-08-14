@@ -34,8 +34,20 @@ import devLoop from '../../services';
 const { width } = Dimensions.get('window');
 
 export default class Haritaicerik extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            locationData: this.props.navigation.state.params
+        }
+
+        console.log(this.props.navigation.state.params);
+        debugger;
+
+    }
+
     render() {
-        const { region } = this.props;
         return (
             <Container>
                 <Header style={{
@@ -45,50 +57,99 @@ export default class Haritaicerik extends Component {
 
                     <Left>
 
-                        <Button transparent onPress={() => this.props.navigation.navigate("DrawerOpen")}>
-                            <Icon active name="menu" />
+                        <Button transparent onPress={() => this.props.navigation.navigate("HaritaDetay")}>
+                            <Icon active name="ios-arrow-back" />
                         </Button>
 
                     </Left>
 
                     <Body>
-                        <Title style={{
-                            fontSize: 20,
-                            textAlign: 'center',
-                            margin: 10,
-                        }}>Keşfet</Title>
+                        <Title>{this.state.locationData.name}</Title>
                     </Body>
+                    <Right></Right>
 
                 </Header>
-                <View style={{
-                    width: width,
-                    height: 300,
-                    justifyContent: "center",
-                    alignItems: "center"
-                }}>
 
-                    <MapView
-                        style={{
-                            ...StyleSheet.absoluteFillObject,
-                        }}
-                        region={{
-                            latitude: 38.348615,
-                            longitude: 38.294145,
-                            latitudeDelta: 0.015,
-                            longitudeDelta: 0.0121,
-                        }}
-                    >
-                        <MapView.Marker
-                          coordinate={{
-                                latitude: 38.348615,
-                                longitude: 38.294145,
+                <ScrollView>
+
+
+                    <View style={{
+                        width: width,
+                        height: 350,
+                        justifyContent: "center",
+                        alignItems: "center"
+                    }}>
+
+
+                        <MapView
+                            style={{
+                                ...StyleSheet.absoluteFillObject,
                             }}
-                        />  
-                    </MapView>
+                            region={{
+                                latitude: this.state.locationData.geometry.location.lat,
+                                longitude: this.state.locationData.geometry.location.lng,
+                                latitudeDelta: 0.015,
+                                longitudeDelta: 0.0121,
+                            }}>
+                            <MapView.Marker
+                                coordinate={{
+                                    latitude: this.state.locationData.geometry.location.lat,
+                                    longitude: this.state.locationData.geometry.location.lng,
+                                }}
+                            />
+                        </MapView>
 
-                </View>
+                    </View>
 
-               
+                    <Card>
+                        <CardItem header>
+                            <Icon name="map" />
+                            <Text style={{fontWeight:'bold'}}>Adı</Text>
+                        </CardItem>
+                        <CardItem>
+                            <Body>
+
+                                <Text>
+                                    {this.state.locationData.name}
+                                </Text>
+                            </Body>
+                        </CardItem>
+                    </Card>
+
+                    <Card>
+                        <CardItem header>
+                            <Icon name="map" />
+                            <Text style={{fontWeight:'bold'}}>Adres</Text>
+                        </CardItem>
+                        <CardItem>
+                            <Body>
+
+                                <Text>
+                                    {this.state.locationData.formatted_address}
+                                </Text>
+                            </Body>
+                        </CardItem>
+                    </Card>
+
+
+                    <Card>
+                        <CardItem header>
+                        <Icon name="map" />
+                            <Text style={{fontWeight:'bold'}}>Detay</Text>
+                        </CardItem>
+                        <CardItem>
+                            <Body>
+
+                                <Text>
+                                    Rating:{this.state.locationData.rating}
+                                </Text>
+
+                            </Body>
+                        </CardItem>
+                    </Card>
+
+                </ScrollView>
+
 
             </Container >
         );

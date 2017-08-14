@@ -3,7 +3,7 @@ import {
     ActivityIndicator,
     StyleSheet,
     Text,
-    View,Image
+    View, Image
 } from 'react-native';
 
 import {
@@ -23,9 +23,9 @@ export default class Menuler extends Component {
         return (
             <Container>
                 <Content>
-                    
-                                    <Image source={{ uri: 'https://seeklogo.com/images/M/malatya-belediyesi-logo-832ED34E86-seeklogo.com.png' }}
-                                        style={{ resizeMode: 'contain',height:150,width:150,alignSelf:'center' }} />
+
+                    <Image source={{ uri: 'https://seeklogo.com/images/M/malatya-belediyesi-logo-832ED34E86-seeklogo.com.png' }}
+                        style={{ resizeMode: 'contain', height: 150, width: 150, alignSelf: 'center' }} />
 
                     <List>
 
@@ -38,18 +38,18 @@ export default class Menuler extends Component {
 
                         <ListItem
                             button
-                            onPress={() => this.props.navigation.navigate("BaskanBilgileri")}>
+                            onPress={() => this.props.navigation.navigate("Genelbilgi",{ query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 22',title:'Başkanımız' })}>
 
                             <Text><Icon name="person" style={{ color: '#FF8E00' }} />  Belediye Başkanımız</Text>
                         </ListItem>
 
-                       <ListItem
+                        <ListItem
                             button
                             onPress={() => this.props.navigation.navigate("Malatya")}>
 
                             <Text><Icon name="heart" style={{ color: '#FF8E00' }} />  Malatyam</Text>
                         </ListItem>
-                                <ListItem
+                        <ListItem
                             button
                             onPress={() => this.props.navigation.navigate("Harita")}>
 

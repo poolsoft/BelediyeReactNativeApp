@@ -88,7 +88,7 @@ export default class Genelbilgi extends Component {
                     </Left>
 
                     <Body>
-                        <Title> Malatya Genel Bilgi</Title>
+                        <Title> {this.props.navigation.state.params.title}</Title>
                     </Body>
 
                     <Right></Right>

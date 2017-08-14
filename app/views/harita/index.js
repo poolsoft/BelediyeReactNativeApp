@@ -58,7 +58,7 @@ export default class Harita extends Component {
                             margin: 10,
                         }}>Keşfet</Title>
                     </Body>
-
+                    <Right></Right>
                 </Header>
                 <View style={{
                     width: width,
@@ -91,40 +91,57 @@ export default class Harita extends Component {
 
                 <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
                     <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate("HaritaDetay", { title: 'Restaurantlar', query: 'restorants' })}
+                        onPress={() => this.props.navigation.navigate("HaritaDetay", { title: 'Camiler', query: 'mosque' })}
+                        style={{
+                            width: width / 2, height: 100, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center',
+                        }}>
+                        <Icon style={{ color: '#FF8E00' }} name='ios-bicycle' />
+                        <Text style={{ color: '#FF8E00' }}>Camiler</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate("HaritaDetay", { title: 'Magazalar', query: 'store' })}
+                        style={{ width: width / 2, height: 100, alignItems: 'center', justifyContent: 'center', }}>
+                        <Icon style={{ color: '#FF8E00' }} name='ios-star' />
+                        <Text style={{ color: '#FF8E00' }}>Magazalar</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={{ flex: 1, flexDirection: 'row' }}>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate("HaritaDetay", { title: 'Restaurantlar', query: 'food' })}
                         style={{
                             width: width / 2, height: 100, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center',
                         }}>
                         <Icon style={{ color: '#FF8E00' }} name='restaurant' />
-                        <Text style={{ color: "#FF8E00" }}>Restaurant ve Kafeler</Text>
+                        <Text style={{ color: "#FF8E00" }}>Restaurantlar</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate("HaritaDetay", { title: 'ATM', query: 'atm' })}
+                        style={{
+                            width: width / 2, height: 100, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center',
+                        }}>
+                        <Icon style={{ color: '#FF8E00' }} name='ios-search' />
+                        <Text style={{ color: '#FF8E00' }}>ATM</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={{ flex: 1, flexDirection: 'row' }}>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate("HaritaDetay", { title: 'Hastaneler', query: 'hospital' })}
+                        style={{
+                            width: width / 2, height: 100, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center',
+                        }}>
+                        <Icon style={{ color: '#FF8E00' }} name='ios-bicycle' />
+                        <Text style={{ color: '#FF8E00' }}>Hastaneler</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate("HaritaDetay", { title: 'Restaurant ve Kafeler', query: ' ' })}
-                        style={{ width: width / 2, height: 100, alignItems: 'center', justifyContent: 'center', }}>
-                        <Icon style={{ color: '#FF8E00' }} name='ios-star' />
-                        <Text style={{ color: '#FF8E00' }}>Kurumsal Yerler</Text>
-                    </TouchableOpacity>
-                </View>
-
-                <View style={{ flex: 1, flexDirection: 'row' }}>
-                    <TouchableOpacity style={{ width: width / 2, height: 100, alignItems: 'center', justifyContent: 'center', }}>
-                        <Icon style={{ color: '#FF8E00' }} name='ios-bicycle' />
-                        <Text style={{ color: '#FF8E00' }}>Gezilcek Yerler</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{ width: width / 2, height: 100, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center', }}>
+                        onPress={() => this.props.navigation.navigate("HaritaDetay", { title: 'Polis Merkezi', query: 'police' })}
+                        style={{
+                            width: width / 2, height: 100, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center',
+                        }}>
                         <Icon style={{ color: '#FF8E00' }} name='ios-search' />
-                        <Text style={{ color: '#FF8E00' }}>Konum Bul</Text>
-                    </TouchableOpacity>
-                </View>
-
-                <View style={{ flex: 1, flexDirection: 'row' }}>
-                    <TouchableOpacity style={{ width: width / 2, height: 100, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center', }}>
-                        <Icon style={{ color: '#FF8E00' }} name='ios-bicycle' />
-                        <Text style={{ color: '#FF8E00' }}>Gezilcek Yerler</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{ width: width / 2, height: 100, alignItems: 'center', justifyContent: 'center', }}>
-                        <Icon style={{ color: '#FF8E00' }} name='ios-search' />
-                        <Text style={{ color: '#FF8E00' }}>Konum Bul</Text>
+                        <Text style={{ color: '#FF8E00' }}>Polis Merkezi</Text>
                     </TouchableOpacity>
                 </View>
 
