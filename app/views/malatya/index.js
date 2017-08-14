@@ -84,12 +84,12 @@ export default class Malatya extends Component {
 
                     <List>
                         <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate("Genelbilgi", { query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 27' })}>
+                            onPress={() => this.props.navigation.navigate("Genelbilgi", {title:'Malatya Genel Bilgi', query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 27' })}>
                             <MalatyaItem name='Malatya Genel Bilgi' icon='document' />
                         </TouchableOpacity>
 
                         <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate("Genelbilgi", { query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 28' })}>
+                            onPress={() => this.props.navigation.navigate("Genelbilgi", {title:"Malatya'nın  Tarihi", query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 28' })}>
                             <MalatyaItem name="Malatya'nın  Tarihi" icon='ios-leaf' />
                         </TouchableOpacity>
 
@@ -99,12 +99,12 @@ export default class Malatya extends Component {
                         </TouchableOpacity>
 
                         <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate("Genelbilgi", { query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 43' })}>
+                            onPress={() => this.props.navigation.navigate("Genelbilgi", {title:"Malatya'da Yaşam", query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 43' })}>
                             <MalatyaItem name="Malatya'da Yaşam" icon='ios-bicycle' />
                         </TouchableOpacity>
 
                         <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate("Genelbilgi", { query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 44' })}>
+                            onPress={() => this.props.navigation.navigate("Genelbilgi", {title:'Malatya ve Kayısı', query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 44' })}>
                             <MalatyaItem name="Malatya ve Kayısı" icon='ios-heart' />
                         </TouchableOpacity>
 
