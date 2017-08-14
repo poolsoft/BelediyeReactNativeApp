@@ -61,7 +61,7 @@ export default class Genelbilgi extends Component {
                     alignItems: 'center',
                 }}>
                     <Text style={{ color: '#FF8E00' }}>Bilgiler Yükleniyor Lütfen Bekleyiniz </Text>
-                    <ActivityIndicator  color="#FF8E00" style={{
+                    <ActivityIndicator color="#FF8E00" style={{
                         marginTop: 30
                     }} />
                 </View>
@@ -88,13 +88,10 @@ export default class Genelbilgi extends Component {
                     </Left>
 
                     <Body>
-                        <Title style={{
-                            fontSize: 20,
-                            textAlign: 'center',
-                            margin: 10,
-                        }}> Malatya Genel Bilgi</Title>
+                        <Title> Malatya Genel Bilgi</Title>
                     </Body>
 
+                    <Right></Right>
                 </Header>
                 <ScrollView>
 

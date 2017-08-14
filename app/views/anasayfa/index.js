@@ -39,30 +39,27 @@ export default class Anasayfa extends Component {
     render() {
 
         return (
-                
+
             <Container style={{
                 backgroundColor: 'white'
             }}>
 
-            
 
                 <Header style={{
                     backgroundColor: '#FF8E00'
                 }}>
-                <StatusBar backgroundColor="#FF8E00" />
-                
+                    <StatusBar backgroundColor="#FF8E00" />
+
                     <Left>
-
-                        <Button transparent onPress={() => this.props.navigation.navigate("DrawerOpen")}>
-                            <Icon active name="menu" />
-                        </Button>
-
+                    <Button transparent onPress={() => this.props.navigation.navigate("DrawerOpen")}>
+                        <Icon name='menu' />
+                    </Button>
                     </Left>
-
                     <Body>
-                        <Title >Malatya Belediyesi</Title>
+                        <Title>Malatyam</Title>
                     </Body>
-
+                    <Right>
+                    </Right>
                 </Header>
                 <Content>
 
@@ -86,7 +83,6 @@ export default class Anasayfa extends Component {
                     <CardItem style={{ backgroundColor: '#FF8E00' }}>
                         <Icon name='paper-plane' style={{ color: 'white' }} />
                         <Text style={{ color: 'white', alignSelf: 'center' }}>HABERLER</Text>
-
                     </CardItem>
 
 

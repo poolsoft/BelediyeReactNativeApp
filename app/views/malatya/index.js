@@ -32,6 +32,22 @@ import devLoop from '../../services';
 
 const { width } = Dimensions.get('window')
 
+class MalatyaItem extends Component {
+
+    render() {
+        return (
+            <Card>
+                <CardItem style={{ justifyContent: 'center', alignItems: 'center' }}>
+                    <Icon name={this.props.icon} style={{ color: '#FF8E00' }} />
+                    <Text style={{ textAlign: 'center', fontSize: 24 }}>{this.props.name}</Text>
+
+                </CardItem>
+            </Card>
+
+        );
+    }
+}
+
 export default class Malatya extends Component {
 
     render() {
@@ -62,79 +78,36 @@ export default class Malatya extends Component {
                             margin: 10,
                         }}>Malatyam</Title>
                     </Body>
-
+                    <Right></Right>
                 </Header>
                 <Content padder>
 
-                    <List >
+                    <List>
                         <TouchableOpacity
                             onPress={() => this.props.navigation.navigate("Genelbilgi", { query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 27' })}>
-
-                            <Card style={{ height: 100 }}>
-                                <CardItem style={{ justifyContent: 'center', alignItems: 'center' }}>
-                                    <Icon name='document' style={{ color: '#f1c40f' }} />
-                                    <Text style={{ textAlign: 'center' }}>Malatya Genel Bilgi  </Text>
-                                    <Right>
-                                        <Icon name="arrow-forward" />
-                                    </Right>
-                                </CardItem>
-                            </Card>
-
-
+                            <MalatyaItem name='Malatya Genel Bilgi' icon='document' />
                         </TouchableOpacity>
 
-                        <Card style={{ height: 100 }} >
-                            <TouchableOpacity
-                                onPress={() => this.props.navigation.navigate("Genelbilgi", { query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 28' })}>
-                                <CardItem >
-                                    <Icon name='ios-leaf' style={{ color: '#FF8E00' }} />
-                                    <Text>Malatya'nın  Tarihi  </Text>
-                                    <Right>
-                                        <Icon name="arrow-forward" />
-                                    </Right>
-                                </CardItem>
-                            </TouchableOpacity>
-                        </Card>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate("Genelbilgi", { query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 28' })}>
+                            <MalatyaItem name="Malatya'nın  Tarihi" icon='ios-leaf' />
+                        </TouchableOpacity>
 
-                        <Card style={{ height: 100 }}>
-                            <TouchableOpacity
-                                onPress={() => this.props.navigation.navigate("ilceler")}>
-                                <CardItem >
-                                    <Icon name='ios-image' style={{ color: '#FF8E00' }} />
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate("ilceler")}>
+                            <MalatyaItem name="Malatya'nın  İlçeleri" icon='ios-image' />
+                        </TouchableOpacity>
 
-                                    <Text>Malatya'nın  İlçeleri  </Text>
-                                    <Right>
-                                        <Icon name="arrow-forward" />
-                                    </Right>
-                                </CardItem>
-                            </TouchableOpacity>
-                        </Card>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate("Genelbilgi", { query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 43' })}>
+                            <MalatyaItem name="Malatya'da Yaşam" icon='ios-bicycle' />
+                        </TouchableOpacity>
 
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate("Genelbilgi", { query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 44' })}>
+                            <MalatyaItem name="Malatya ve Kayısı" icon='ios-heart' />
+                        </TouchableOpacity>
 
-                        <Card style={{ height: 100 }}>
-                            <TouchableOpacity
-                                onPress={() => this.props.navigation.navigate("Genelbilgi", { query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 43' })}>
-                                <CardItem >
-                                    <Icon name='ios-bicycle' style={{ color: '#FF8E00' }} />
-                                    <Text>Malatya'da Yaşam  </Text>
-                                    <Right>
-                                        <Icon name="arrow-forward" />
-                                    </Right>
-                                </CardItem>
-                            </TouchableOpacity>
-                        </Card>
-                        <Card style={{ height: 100 }}>
-                            <TouchableOpacity
-                                onPress={() => this.props.navigation.navigate("Genelbilgi", { query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 44' })}>
-                                <CardItem >
-                                    <Icon name='ios-heart' style={{ color: '#FF8E00' }} />
-                                    <Text>Malatya ve Kayısı </Text>
-                                    <Right>
-                                        <Icon name="arrow-forward" />
-                                    </Right>
-                                </CardItem>
-                            </TouchableOpacity>
-                        </Card>
                     </List>
 
                 </Content>

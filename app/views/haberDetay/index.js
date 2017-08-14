@@ -44,25 +44,24 @@ export default class HaberDetay extends Component {
             <Container style={{
                 backgroundColor: 'white'
             }}>
-
                 <Header style={{
                     backgroundColor: '#FF8E00'
                 }}>
                     <StatusBar backgroundColor="#FF8E00" />
 
                     <Left>
-
                         <Button transparent onPress={() => this.props.navigation.navigate("Anasayfa")}>
                             <Icon active name="ios-arrow-back" />
                         </Button>
-
                     </Left>
-
                     <Body>
-                        <Title >{this.state.dataSource.Header}</Title>
+                        <Title >Malatyam</Title>
                     </Body>
-
+                    <Right>
+                    </Right>
                 </Header>
+
+
                 <ScrollView>
 
                     <Image resizeMode='stretch' style={{

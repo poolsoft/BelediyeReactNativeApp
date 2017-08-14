@@ -62,7 +62,7 @@ export default class Harita extends Component {
                 </Header>
                 <View style={{
                     width: width,
-                    height: 300,
+                    height: 350,
                     justifyContent: "center",
                     alignItems: "center"
                 }}>
@@ -79,25 +79,28 @@ export default class Harita extends Component {
                         }}
                     >
                         <MapView.Marker
-                          coordinate={{
+                            coordinate={{
                                 latitude: 38.348615,
                                 longitude: 38.294145,
                             }}
-                        />  
+                            title={"Malatya Büyükşehir Belediyesi"}
+                        />
                     </MapView>
 
                 </View>
 
                 <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
                     <TouchableOpacity
-                    onPress={() => this.props.navigation.navigate("HaritaDetay", { title:'Restaurant ve Kafeler', query: 'restorants' })}
-                     style={{
-                        width: width / 2, height: 100, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center',
-                    }}>
+                        onPress={() => this.props.navigation.navigate("HaritaDetay", { title: 'Restaurantlar', query: 'restorants' })}
+                        style={{
+                            width: width / 2, height: 100, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center',
+                        }}>
                         <Icon style={{ color: '#FF8E00' }} name='restaurant' />
-                        <Text style={{color:"#FF8E00"}}>Restaurant ve Kafeler</Text>
+                        <Text style={{ color: "#FF8E00" }}>Restaurant ve Kafeler</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ width: width / 2, height: 100, alignItems: 'center', justifyContent: 'center', }}>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate("HaritaDetay", { title: 'Restaurant ve Kafeler', query: ' ' })}
+                        style={{ width: width / 2, height: 100, alignItems: 'center', justifyContent: 'center', }}>
                         <Icon style={{ color: '#FF8E00' }} name='ios-star' />
                         <Text style={{ color: '#FF8E00' }}>Kurumsal Yerler</Text>
                     </TouchableOpacity>

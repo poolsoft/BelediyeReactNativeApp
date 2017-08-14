@@ -5,6 +5,7 @@ import {
     View,
     Image,
     Text,
+    TextInput,
     ListView,
     TouchableOpacity,
     Dimensions,
@@ -32,18 +33,29 @@ import MapView from 'react-native-maps';
 import devLoop from '../../services';
 
 const { width } = Dimensions.get('window');
+
+import Search from 'react-native-search-box';
+
 export default class HaritaDetay extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            isLoading: true
+            isLoading: true,
+            status: false
         }
+
+        this._handleResults = this._handleResults.bind(this);
     }
+    toggleStatus() {
+        this.setState({
+            status: !this.state.status
+        });
+    }
+
     componentDidMount() {
 
         let query = this.props.navigation.state.params.query;
-        // let query = 'SELECT * FROM `tcontentlanguage` where `ContentID` =27';
 
         return devLoop.getAllMapPlacesByQuery(query).then((res) => {
             let ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
@@ -53,10 +65,19 @@ export default class HaritaDetay extends Component {
                 dataSource: ds.cloneWithRows(res.results),
                 markers: res.results
             });
-                debugger;
-            
         });
 
+    }
+
+    _handleResults() {
+        debugger;
+
+        let ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+
+        debugger;
+        this.setState({ dataSource: ds.cloneWithRows(results) });
+
+        debugger;
     }
 
     render() {
@@ -91,47 +112,67 @@ export default class HaritaDetay extends Component {
                     </Left>
 
                     <Body>
-                        <Title style={{
-                            fontSize: 20,
-                            textAlign: 'center',
-                            margin: 10,
-                        }}>{this.props.navigation.state.params.title}</Title>
+                        <Title>{this.props.navigation.state.params.title}</Title>
                     </Body>
-
+                    <Right>
+                        <Button transparent onPress={() => this.toggleStatus()}>
+                            <Icon active name="search" />
+                        </Button>
+                    </Right>
                 </Header>
-                <View style={{
-                    width: width,
-                    height: 200,
-                    justifyContent: "center",
-                    alignItems: "center"
-                }}>
-
-                    <MapView
-                        style={{
-                            ...StyleSheet.absoluteFillObject,
-                        }}
-                        region={{
-                            latitude: 38.348615,
-                            longitude: 38.294145,
-                            latitudeDelta: 0.015,
-                            longitudeDelta: 0.0121,
-                        }}
-
-                    >
-                       
-
-                       
-                    
-                    </MapView>
-
-
-
-
-
-                </View>
-
                 <ScrollView>
 
+                    <View >
+
+                        {this.state.status &&
+                            <Search
+                                ref={(ref) => this.searchBar = ref}
+                                backgroundColor="#FF8E00"
+                                placeholder="Ara"
+                                data={this.state.dataSource}
+                                handleResults={this._handleResults}
+                                showOnLoad
+                            />
+                        }
+                    </View>
+
+                    <View style={{
+                        width: width,
+                        height: 350,
+                        justifyContent: "center",
+                        alignItems: "center"
+                    }}>
+
+                        <MapView
+                            style={{
+                                ...StyleSheet.absoluteFillObject,
+                            }}
+                            region={{
+                                latitude: 38.348615,
+                                longitude: 38.294145,
+                                latitudeDelta: 0.015,
+                                longitudeDelta: 0.0121,
+                            }}>
+
+                            {this.state.markers.map(marker => (
+                                <MapView.Marker
+                                    key={marker.id.toString()}
+                                    coordinate={{
+                                        latitude: marker.geometry.location.lat,
+                                        longitude: marker.geometry.location.lng,
+                                    }}
+                                    title={marker.name}
+                                />
+                            ))}
+
+                        </MapView>
+
+                    </View>
+
+                    <CardItem style={{ backgroundColor: '#FF8E00' }}>
+                        <Icon name='paper-plane' style={{ color: 'white' }} />
+                        <Text style={{ color: 'white', alignSelf: 'center' }}>{this.props.navigation.state.params.title}</Text>
+                    </CardItem>
                     <ListView
                         dataSource={this.state.dataSource}
                         renderRow={(rowData) =>
@@ -142,9 +183,6 @@ export default class HaritaDetay extends Component {
                                     <CardItem>
                                         <Icon name='map' style={{ color: '#FF8E00' }} />
                                         <Text numberOfLines={1}>{rowData.name}</Text>
-                                        <Right>
-                                            <Icon color="#FF8E00" name="arrow-forward" />
-                                        </Right>
                                     </CardItem>
                                 </Card>
                             </TouchableOpacity>

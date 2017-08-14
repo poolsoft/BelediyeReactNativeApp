@@ -73,6 +73,8 @@ export default class BaskanBilgileri extends Component {
                                 <Title>Belediye Başkanımız</Title>
                             </Body>
 
+                            <Right>
+                            </Right>
                         </Header>
 
                         <ActivityIndicator color="#FF8E00" />
@@ -94,20 +96,18 @@ export default class BaskanBilgileri extends Component {
 
                     <Left>
 
-                                <Button transparent onPress={() => this.props.navigation.navigate("DrawerOpen")}>
-                                    <Icon active name="menu" />
-                                </Button>
+                        <Button transparent onPress={() => this.props.navigation.navigate("DrawerOpen")}>
+                            <Icon active name="menu" />
+                        </Button>
 
                     </Left>
 
                     <Body>
-                        <Title style={{
-                            fontSize: 20,
-                            textAlign: 'center',
-                            margin: 10,
-                        }}>Belediye Başkanımız</Title>
+                        <Title>Başkanımız</Title>
                     </Body>
 
+                    <Right>
+                    </Right>
                 </Header>
                 <ScrollView>
 
