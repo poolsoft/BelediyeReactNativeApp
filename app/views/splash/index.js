@@ -30,8 +30,8 @@ export default class Splash extends Component {
         <StatusBar
           backgroundColor="white"
         />
-<Image source={{uri:'http://tedarik.malatya.bel.tr/Assets/Images/webtvlogo.png'}}
-style={{height:100,width:350,
+<Image source={require('../../images/LOGO.png')}
+style={{height:200,width:250,
 resizeMode:'stretch'}}/>
 
         <ActivityIndicator size="large" color="#FF8E00" style={{

@@ -24,7 +24,7 @@ export default class Menuler extends Component {
             <Container>
                 <Content>
 
-                    <Image source={{ uri: 'https://seeklogo.com/images/M/malatya-belediyesi-logo-832ED34E86-seeklogo.com.png' }}
+                    <Image source={require('../../images/LOGO.png')}
                         style={{ resizeMode: 'contain', height: 150, width: 150, alignSelf: 'center' }} />
 
                     <List>

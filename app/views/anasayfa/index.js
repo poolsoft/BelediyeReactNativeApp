@@ -105,7 +105,7 @@ export default class Anasayfa extends Component {
                                 <Card>
                                     <CardItem>
                                         <Icon name='paper' style={{ color: '#FF8E00' }} />
-                                        <Text numberOfLines={1}>{rowData.Header}</Text>
+                                        <Text numberOfLines={1} style={{width:250}}>{rowData.Header}</Text>
                                         <Right>
                                             <Icon color="#FF8E00" name="arrow-forward" />
                                         </Right>
