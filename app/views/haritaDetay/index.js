@@ -88,6 +88,8 @@ export default class HaritaDetay extends Component {
                     justifyContent: 'center',
                     alignItems: 'center',
                 }}>
+                         <Image source={{uri:'https://www.eatthismuch.com/static_files/images/fist_pump.gif'}} style={{width:200,height:250}} />
+
                     <Text style={{ color: '#FF8E00' }}>Bilgiler Yükleniyor Lütfen Bekleyiniz </Text>
                     <ActivityIndicator color="#FF8E00" style={{
                         marginTop: 30
@@ -138,7 +140,7 @@ export default class HaritaDetay extends Component {
 
                     <View style={{
                         width: width,
-                        height: 350,
+                        height: 300,
                         justifyContent: "center",
                         alignItems: "center"
                     }}>
@@ -170,8 +172,8 @@ export default class HaritaDetay extends Component {
                     </View>
 
                     <CardItem style={{ backgroundColor: '#FF8E00' }}>
-                        <Icon name='paper-plane' style={{ color: 'white' }} />
-                        <Text style={{ color: 'white', alignSelf: 'center' }}>{this.props.navigation.state.params.title}</Text>
+                        <Icon name='ios-map' style={{ color: 'white' }} />
+                        <Text style={{ color: 'white', alignSelf: 'center' }}>Bulunan {this.props.navigation.state.params.title}'in Listesi</Text>
                     </CardItem>
                     <ListView
                         dataSource={this.state.dataSource}

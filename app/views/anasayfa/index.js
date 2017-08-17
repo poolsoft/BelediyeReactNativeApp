@@ -27,33 +27,42 @@ import Swiper from 'react-native-swiper';
 import styles from "./styles";
 import devLoop from '../../services';
 
+
 export default class Anasayfa extends Component {
     constructor(props) {
         super(props);
-        const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
-        this.state = {
-            dataSource: ds.cloneWithRows(this.props.navigation.state.params),
-        };
+
+       
+            const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+            this.state = {
+                dataSource: ds.cloneWithRows(this.props.navigation.state.params),
+            };
+
+
     }
+
 
     render() {
 
         return (
+
 
             <Container style={{
                 backgroundColor: 'white'
             }}>
 
 
+
+              
                 <Header style={{
                     backgroundColor: '#FF8E00'
                 }}>
                     <StatusBar backgroundColor="#FF8E00" />
 
                     <Left>
-                    <Button transparent onPress={() => this.props.navigation.navigate("DrawerOpen")}>
-                        <Icon name='menu' />
-                    </Button>
+                        <Button transparent onPress={() => this.props.navigation.navigate("DrawerOpen")}>
+                            <Icon name='menu' />
+                        </Button>
                     </Left>
                     <Body>
                         <Title>Malatyam</Title>
@@ -61,6 +70,7 @@ export default class Anasayfa extends Component {
                     <Right>
                     </Right>
                 </Header>
+
                 <Content>
 
                     <Swiper style={styles.wrapper} height={250}

@@ -38,7 +38,7 @@ export default class Menuler extends Component {
 
                         <ListItem
                             button
-                            onPress={() => this.props.navigation.navigate("Genelbilgi",{ query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 22',title:'Başkanımız' })}>
+                            onPress={() => this.props.navigation.navigate("Baskan")}>
 
                             <Text><Icon name="person" style={{ color: '#FF8E00' }} />  Belediye Başkanımız</Text>
                         </ListItem>

@@ -75,7 +75,7 @@ export default class Haritaicerik extends Component {
 
                     <View style={{
                         width: width,
-                        height: 350,
+                        height: 300,
                         justifyContent: "center",
                         alignItems: "center"
                     }}>

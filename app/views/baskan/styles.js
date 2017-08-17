@@ -30,8 +30,7 @@ export default {
     justifyContent: "center",
     alignItems: "center"
   },
-
-    title:
+   title:
   {
     left:0,
     width:200

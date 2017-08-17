@@ -13,7 +13,12 @@ import Harita from './app/views/harita';
 import HaritaDetay from './app/views/haritaDetay';
 import Haritaicerik from './app/views/haritaicerik';
 import Hakkimizda from './app/views/hakkimizda';
-import Hakkimizdaicerik from './app/views/hakkimizdaicerik';
+import Baskan from './app/views/baskan';
+import Malatyaicerik from './app/views/malatyaicerik';
+import Malatyatarih from './app/views/malatyatarih';
+
+
+
 
 
 
@@ -21,15 +26,21 @@ const BelediyeMobileApp = DrawerNavigator(
   {
     Splash: { screen: Splash },
     Anasayfa: { screen: Anasayfa },
+    
     HaberDetay: { screen: HaberDetay },
     Malatya: { screen: Malatya },
     ilceler: { screen: ilceler },
     Genelbilgi: { screen: Genelbilgi },
     Harita: { screen: Harita },
     HaritaDetay: { screen: HaritaDetay },
+    Malatyaicerik: { screen: Malatyaicerik },
     Haritaicerik: { screen: Haritaicerik },
+    Malatyatarih: { screen: Malatyatarih },
+    
+    
     Hakkimizda: { screen: Hakkimizda },
-    Hakkimizdaicerik: { screen: Hakkimizdaicerik },
+    Baskan: { screen: Baskan },
+    
     
     
     

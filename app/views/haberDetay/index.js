@@ -50,7 +50,7 @@ export default class HaberDetay extends Component {
                     <StatusBar backgroundColor="#FF8E00" />
 
                     <Left>
-                        <Button transparent onPress={() => this.props.navigation.navigate("Anasayfa")}>
+                        <Button transparent onPress={() => this.props.navigation.navigate("Malatya")}>
                             <Icon active name="ios-arrow-back" />
                         </Button>
                     </Left>

@@ -87,12 +87,12 @@ style={{resizeMode:'stretch',height:250,width:400}}/>
 </Card>
                     <List>
                         <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate("Genelbilgi", {title:'Malatya Genel Bilgi', query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 27' })}>
+                            onPress={() => this.props.navigation.navigate("Malatyaicerik")}>
                             <MalatyaItem name='Malatya Genel Bilgi' icon='document' />
                         </TouchableOpacity>
 
                         <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate("Genelbilgi", {title:"Malatya'nın  Tarihi", query: 'SELECT * FROM `tcontentlanguage` where `ContentID` = 28' })}>
+                            onPress={() => this.props.navigation.navigate("Malatyatarih")}>
                             <MalatyaItem name="Malatya'nın  Tarihi" icon='ios-leaf' />
                         </TouchableOpacity>
 

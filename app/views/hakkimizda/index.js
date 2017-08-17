@@ -31,7 +31,6 @@ import {
 
 
 import devLoop from '../../services';
-import Hakkimizdaicerik from '../hakkimizdaicerik'
 const { width } = Dimensions.get('window')
 
 export default class Hakkimizda extends Component {
@@ -65,8 +64,8 @@ export default class Hakkimizda extends Component {
 
                     <Right></Right>
                 </Header>
-                <Content>
-                    <Card style={{ flex: 0 }}>
+                <Content style={{backgroundColor:'#bdc3c7'}}>
+                    <Card style={{ flex: 0,top:0 ,height:280}}>
                         <CardItem>
                             <Left>
                                 <Thumbnail source={{ uri: 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAA3DAAAAJDNkNDQ1ZjEwLWRjYWEtNGRlOC1hOTJjLWM0MGMzZGI5NzA3ZA.jpg' }} />
@@ -79,48 +78,30 @@ export default class Hakkimizda extends Component {
                         <CardItem>
                             <Body>
                                 <Text>
-                                    Osmangazi üniversitesi bilgisayar mühendisliği son sınıf  ögrencisiyim.Bölümüm
-                                    içerisinde hocalarımın destegi ve yönlendirmesi ile birçok projede görev alıp
-                                kendimi geliştirme fırsatı buldum.Dahil  olduğum projeler:
-                                {"\n"}
-                             
-
-
-                                    <Text style={{ fontWeight: 'bold' }}>    Megaron App  {"\n"} </Text>
-                                    Mobil Uygulamalarda Güvenlik Açıklarının Taranmanması
-                                    {"\n"}
-
-                                    <Text style={{ fontWeight: 'bold' }}>    Stok Güncelleme {"\n"} </Text>
-
-                                    Vilnius Gediminias Technical üniversitesinde almış oldugum Object Oriented
-                                    Techniques dersi kapsamında stok güncelemesi yapan bir uygulama geliştirdik.
-                                    {"\n"}
-
-                                    <Text style={{ fontWeight: 'bold',  }}>     TransXChange{"\n"} </Text>
-
-
-                                    Biçimsel diller ve otomata dersi kapsamında toplu taşıma araçlarının haberleşmesini
-                                    sağlayan XML tabanlı C# uygulaması geliştirdik. {"\n"}
-
-                                  <Text style={{ fontWeight: 'bold' }}>   Soket API Programlama{"\n"} </Text>
-
-
-                                    Soket Apı programlama ile araba simülatörü yapıldı.Etkin kullanılan dil C++
-                                            {"\n"}
-
-                                    <Text style={{ fontWeight: 'bold' }}>      Web dizayn{"\n"} </Text>
-
-
-                                    Beliri bir proje olmamakla birlikte daha önce yer aldığım projeler içerisinde web
-                                    dizaynın yapılmasında görev aldım.Ayrıca boş zamanlarımda ek çalışma olması adına
-                                    web dizayn ile uğraşmaktayım.
-
+                                 Eskişehir Osmangazi Üniversitesi Bilgisayar Mühendisliği son sınıf ögrencisi.                                 
+                                {"\n"} Aşağıdaki linklerden bana ulaşabilirsiniz:
                 </Text>
+
+
+                                <Image source={{uri:'https://www.lehigh.edu/google/gmail.png'}}
+                                style={{ width: 30, height: 20, marginTop: 10, marginLeft: 15, }} />
+                                <Text style={{ marginTop: -20, marginLeft: 40 }}>   sevdacimen23@gmail.com</Text>
+                                <Icon name="logo-linkedin" style={{ width: 40, height: 30, marginTop: 10, marginLeft: 20 ,color:'#0077B5'}} />
+                                  <Text  style={{ marginTop: -25, marginLeft: 50 }}
+                                onPress={() => Linking.openURL('https://www.linkedin.com/in/sevda-çimen-39525abb/')}>
+                                Sevda Çimen</Text>
+                                <Icon name="logo-github" style={{ width: 40, height: 30, marginTop: 10, marginLeft: 20 }} />
+                                   <Text   style={{ marginTop: -25, marginLeft: 50 }}
+                                onPress={() => Linking.openURL('https://github.com/SevdaCimen')}>
+                                Sevda Çimen</Text>
+                                
+                                
+
                             </Body>
                         </CardItem>
                     </Card>
 
-                    <Card style={{ flex: 0 }}>
+                    <Card style={{ flex: 0,height:270,top:10 }}>
                         <CardItem>
                             <Left>
                                 <Thumbnail source={{ uri: 'https://pbs.twimg.com/profile_images/730113688804397057/RbzKvbaC.jpg' }} />
@@ -132,7 +113,23 @@ export default class Hakkimizda extends Component {
                         </CardItem>
                         <CardItem>
                             <Body>
-<Text> hajhajbadb</Text>
+                                                             
+                                <Text>  Malatya İnönü Üniversitesi Bilgisayar Mühendisliği  
+         {"\n"} Aşağıdaki linklerden bana ulaşabilirsiniz:
+         
+</Text>
+ <Image source={{uri:'https://www.lehigh.edu/google/gmail.png'}}
+                                style={{ width: 30, height: 20, marginTop: 10, marginLeft: 15, }} />
+                                <Text style={{ marginTop: -20, marginLeft: 40 }}>  necmettincimen01@gmail.com</Text>
+                                <Icon name="logo-linkedin" style={{ width: 40, height: 30, marginTop: 10, marginLeft: 20 ,color:'#0077B5'}} />
+                                
+                            <Text  style={{ marginTop: -25, marginLeft: 50 }}
+                                onPress={() => Linking.openURL('https://www.linkedin.com/in/necmettin-çimen-805275115/')}>
+                                Necmettin Çimen  </Text>
+                                <Icon name="logo-github" style={{ width: 40, height: 30, marginTop: 10, marginLeft: 20 }} />
+                                   <Text   style={{ marginTop: -25, marginLeft: 50 }}
+                                onPress={() => Linking.openURL('https://github.com/NecmettinCimen')}>
+                                Necmettin Çimen</Text>
                             </Body>
                         </CardItem>
                     </Card>
@@ -145,16 +142,17 @@ export default class Hakkimizda extends Component {
 
 
                 </Content>
-                <Footer>
-                    <FooterTab style={{ backgroundColor: '#FF8E00' }}>
-                       
-                       
-                        <Button 
-                        onPress={() => this.props.navigation.navigate("Hakkimizdaicerik")} >
-                            <Text style={{color:'white'}}>İletişim</Text>
+                <Footer style={{height:30}}>
+                    <FooterTab style={{ backgroundColor: '#FF8E00' ,}}>
+
+
+                        <Button
+                           >
+                            <Text style={{ color: 'white' }}>@devloop</Text>
                         </Button>
 
                     </FooterTab>
+                    
                 </Footer>
 
 

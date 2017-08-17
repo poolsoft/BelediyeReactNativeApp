@@ -71,8 +71,9 @@ export default class ilceler extends Component {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-          <Text style={{ color: '#2980b9' }}>Bilgiler Yükleniyor Lütfen Bekleyiniz </Text>
-          <ActivityIndicator size="large" color="#f1c40f" style={{
+         <Image source={{uri:'https://www.eatthismuch.com/static_files/images/fist_pump.gif'}} style={{width:200,height:250}} />
+          <Text style={{ color: '#FF8E00' }}>Bilgiler Yükleniyor Lütfen Bekleyiniz </Text>
+          <ActivityIndicator size="large" color="#FF8E00" style={{
             marginTop: 30
           }} />
         </View>
@@ -91,8 +92,8 @@ export default class ilceler extends Component {
 
                     <Left>
 
-                        <Button transparent onPress={() => this.props.navigation.navigate("DrawerOpen")}>
-                            <Icon active name="menu" />
+                        <Button transparent onPress={() => this.props.navigation.navigate("Malatya")}>
+                            <Icon active name="ios-arrow-back" />
                         </Button>
 
                     </Left>
@@ -119,9 +120,7 @@ export default class ilceler extends Component {
                                     <CardItem>
                                         <Icon name='map' style={{ color: '#FF8E00' }} />
                                         <Text numberOfLines={1}>{rowData.Header}</Text>
-                                        <Right>
-                                            <Icon color="#FF8E00" name="arrow-forward" />
-                                        </Right>
+                                       
                                     </CardItem>
                                 </Card>
                             </TouchableOpacity>

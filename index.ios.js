@@ -1,53 +1,58 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+import React, { Component } from "react";
+import { AppRegistry } from 'react-native';
+import { DrawerNavigator } from 'react-navigation';
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import Splash from './app/views/splash';
+import Anasayfa from './app/views/anasayfa';
+import Menuler from './app/views/menuler';
+import HaberDetay from './app/views/haberDetay';
+import Malatya from './app/views/malatya';
+import ilceler from './app/views/ilceler';
+import Genelbilgi from './app/views/genelbilgi';
+import Harita from './app/views/harita';
+import HaritaDetay from './app/views/haritaDetay';
+import Haritaicerik from './app/views/haritaicerik';
+import Hakkimizda from './app/views/hakkimizda';
+import Baskan from './app/views/baskan';
+import Malatyaicerik from './app/views/malatyaicerik';
+import Malatyatarih from './app/views/malatyatarih';
 
-export default class BelediyeMobileApp extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
-    );
+
+
+
+
+
+const BelediyeMobileApp = DrawerNavigator(
+  {
+    Splash: { screen: Splash },
+    Anasayfa: { screen: Anasayfa },
+    
+    HaberDetay: { screen: HaberDetay },
+    Malatya: { screen: Malatya },
+    ilceler: { screen: ilceler },
+    Genelbilgi: { screen: Genelbilgi },
+    Harita: { screen: Harita },
+    HaritaDetay: { screen: HaritaDetay },
+    Malatyaicerik: { screen: Malatyaicerik },
+    Haritaicerik: { screen: Haritaicerik },
+    Malatyatarih: { screen: Malatyatarih },
+    
+    
+    Hakkimizda: { screen: Hakkimizda },
+    Baskan: { screen: Baskan },
+    
+    
+    
+    
+  },
+  {
+    drawerWidth: 300,
+    drawerPosition: 'left',
+    contentComponent: props => <Menuler {...props} />
+  },
+  {
+    headerMode: 'none'
   }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+);
 
 AppRegistry.registerComponent('BelediyeMobileApp', () => BelediyeMobileApp);

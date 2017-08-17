@@ -60,6 +60,8 @@ export default class Genelbilgi extends Component {
                     justifyContent: 'center',
                     alignItems: 'center',
                 }}>
+                         <Image source={{uri:'https://www.eatthismuch.com/static_files/images/fist_pump.gif'}} style={{width:200,height:250}} />
+
                     <Text style={{ color: '#FF8E00' }}>Bilgiler Yükleniyor Lütfen Bekleyiniz </Text>
                     <ActivityIndicator color="#FF8E00" style={{
                         marginTop: 30
@@ -88,7 +90,7 @@ export default class Genelbilgi extends Component {
                     </Left>
 
                     <Body>
-                        <Title> {this.props.navigation.state.params.title}</Title>
+                        <Title style={styles.title}> {this.props.navigation.state.params.title}</Title>
                     </Body>
 
                     <Right></Right>
